@@ -64,7 +64,7 @@
         <p>The ultimate CPvP & Economy Minecraft experience!</p>
         
         <h2>About NPPvP</h2>
-        <p>NPPvP combines Competitive PvP (CPvP) with a dynamic economy system. Trade, fight, and dominate the battlefield!</p>
+        <p>NPPvP combines Crystal PvP (CPvP) with a dynamic economy system. Trade, fight, and dominate the battlefield!</p>
         
         <h2>Features</h2>
         <ul class="features">
@@ -75,7 +75,7 @@
         </ul>
         
         <div class="cta">
-            <a href="#">Join Now - Server IP: play.nppvp.com</a>
+            <a href="#">Join Now - Server IP: play.nppvp.fun</a>
         </div>
     </div>
 </body>
