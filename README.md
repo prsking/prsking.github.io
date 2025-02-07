@@ -9,16 +9,28 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-image: url('https://source.unsplash.com/1600x900/?nepal,mountains');
             background-size: cover;
+            background-position: center;
             color: white;
             text-align: center;
+            animation: backgroundAnimation 20s infinite alternate;
+        }
+        @keyframes backgroundAnimation {
+            0% { background-image: url('https://source.unsplash.com/1600x900/?nepal,mountains'); }
+            50% { background-image: url('https://source.unsplash.com/1600x900/?nepal,temples'); }
+            100% { background-image: url('https://source.unsplash.com/1600x900/?nepal,rivers'); }
         }
         .section {
             padding: 50px;
             background: rgba(0, 0, 0, 0.7);
             margin: 20px;
             border-radius: 10px;
+            opacity: 0;
+            animation: fadeIn 2s forwards;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
     </style>
 </head>
