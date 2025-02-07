@@ -8,7 +8,7 @@
         body {
             font-family: Arial, sans-serif;
             text-align: center;
-            background: url('https://images.pexels.com/photos/164338/pexels-photo-164338.jpeg') no-repeat center center fixed;
+            background: url('https://images.pexels.com/photos/572897/pexels-photo-572897.jpeg') no-repeat center center fixed;
             background-size: cover;
             color: white;
             margin: 0;
