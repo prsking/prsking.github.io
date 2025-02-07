@@ -8,7 +8,7 @@
         body {
             font-family: Arial, sans-serif;
             text-align: center;
-            background: url('https://images.unsplash.com/photo-1521747116042-5bbf1e1e6d8b') no-repeat center center fixed;
+            background: url('https://images.unsplash.com/photo-1549366029-7b87a8f7da1b') no-repeat center center fixed;
             background-size: cover;
             color: white;
             margin: 0;
