@@ -26,7 +26,7 @@
             <li>Fast-paced CPvP action</li>
             <li>Player-driven economy</li>
             <li>Custom events & rewards</li>
-            <li>Dedicated & lag-free servers</li>
+            <li>Dedicated & lag-free server</li>
         </ul>
         
         <div class="cta">
