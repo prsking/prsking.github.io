@@ -20,10 +20,15 @@
             50% { background-image: url('https://source.unsplash.com/1600x900/?nepal,temples'); }
             100% { background-image: url('https://source.unsplash.com/1600x900/?nepal,rivers'); }
         }
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px;
+        }
         .section {
             padding: 50px;
             background: rgba(0, 0, 0, 0.7);
-            margin: 20px;
+            margin: 20px 0;
             border-radius: 10px;
             opacity: 0;
             animation: fadeIn 2s forwards;
@@ -32,21 +37,38 @@
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
+        h1 {
+            font-size: 50px;
+            margin-top: 20px;
+        }
+        h2 {
+            color: #f9a826;
+        }
     </style>
 </head>
 <body>
-    <h1>Welcome to Nepal</h1>
-    <div class="section">
-        <h2>Culture</h2>
-        <p>Nepal is rich in cultural heritage, with diverse traditions, festivals, and rituals from various ethnic groups.</p>
-    </div>
-    <div class="section">
-        <h2>Food</h2>
-        <p>Enjoy traditional Nepali cuisine such as Dal Bhat, Momo, and Newari delicacies.</p>
-    </div>
-    <div class="section">
-        <h2>Places to Visit</h2>
-        <p>Explore breathtaking destinations like Mount Everest, Pokhara, Kathmandu, and Lumbini.</p>
+    <div class="container">
+        <h1>Welcome to Nepal</h1>
+        <div class="section">
+            <h2>About Nepal</h2>
+            <p>Nepal is a landlocked country in South Asia, home to diverse cultures, breathtaking landscapes, and historic sites.</p>
+        </div>
+        <div class="section">
+            <h2>Culture & Traditions</h2>
+            <p>Nepal boasts a rich cultural heritage influenced by Hindu and Buddhist traditions, with numerous festivals and rituals.</p>
+        </div>
+        <div class="section">
+            <h2>Traditional Cuisine</h2>
+            <p>Enjoy Nepali dishes such as Dal Bhat, Momo, Sel Roti, and Newari specialties that reflect the nation’s diverse culinary heritage.</p>
+        </div>
+        <div class="section">
+            <h2>Famous Destinations</h2>
+            <p>Visit must-see attractions like Mount Everest, Pokhara, Lumbini, and the historical sites of Kathmandu Valley.</p>
+        </div>
+        <div class="section">
+            <h2>People & Languages</h2>
+            <p>Nepal is home to multiple ethnic groups and languages, including Nepali, Maithili, and Newar, showcasing its cultural diversity.</p>
+        </div>
     </div>
 </body>
 </html>
