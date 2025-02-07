@@ -8,24 +8,30 @@
         body {
             font-family: Arial, sans-serif;
             text-align: center;
-            background: url('https://source.unsplash.com/1600x900/?minecraft') no-repeat center center fixed;
+            background: url('https://wallpapercave.com/wp/wp2565121.jpg') no-repeat center center fixed;
             background-size: cover;
             color: white;
             margin: 0;
             padding: 0;
         }
-        header {
-            padding: 20px;
-            background-color: rgba(0, 0, 0, 0.7);
-            font-size: 24px;
-            font-weight: bold;
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(8px);
         }
         .container {
+            position: relative;
             max-width: 800px;
-            margin: auto;
+            margin: 50px auto;
             padding: 20px;
-            background: rgba(0, 0, 0, 0.6);
+            background: rgba(255, 255, 255, 0.2);
             border-radius: 10px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
         }
         .cta {
             background-color: #28a745;
@@ -44,7 +50,7 @@
             padding: 0;
         }
         .features li {
-            background: #444;
+            background: rgba(255, 255, 255, 0.3);
             margin: 10px 0;
             padding: 10px;
             border-radius: 5px;
@@ -52,8 +58,11 @@
     </style>
 </head>
 <body>
-    <header>NPPvP</header>
+    <div class="overlay"></div>
     <div class="container">
+        <h2>NPPvP</h2>
+        <p>The ultimate CPvP & Economy Minecraft experience!</p>
+        
         <h2>About NPPvP</h2>
         <p>NPPvP combines Competitive PvP (CPvP) with a dynamic economy system. Trade, fight, and dominate the battlefield!</p>
         
