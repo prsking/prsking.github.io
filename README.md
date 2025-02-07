@@ -8,7 +8,7 @@
         body {
             font-family: Arial, sans-serif;
             text-align: center;
-            background: url('https://wallpapercave.com/wp/wp2565121.jpg') no-repeat center center fixed;
+            background: url('https://example.com/nature-image.jpg') no-repeat center center fixed;
             background-size: cover;
             color: white;
             margin: 0;
