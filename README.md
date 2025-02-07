@@ -8,7 +8,7 @@
         body {
             font-family: Arial, sans-serif;
             text-align: center;
-            background: url('https://www.w3schools.com/w3images/mountains.jpg') no-repeat center center fixed;
+            background: url('https://images.pexels.com/photos/164338/pexels-photo-164338.jpeg') no-repeat center center fixed;
             background-size: cover;
             color: white;
             margin: 0;
