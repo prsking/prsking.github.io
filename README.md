@@ -8,7 +8,7 @@
         body {
             font-family: Arial, sans-serif;
             text-align: center;
-            background: url('https://example.com/nature-image.jpg') no-repeat center center fixed;
+            background: url('https://images.unsplash.com/photo-1521747116042-5bbf1e1e6d8b') no-repeat center center fixed;
             background-size: cover;
             color: white;
             margin: 0;
@@ -26,7 +26,7 @@
         .container {
             position: relative;
             max-width: 800px;
-            margin: 50px auto;
+            margin: 20px auto; /* Reduced margin-top to move text closer to the top */
             padding: 20px;
             background: rgba(255, 255, 255, 0.2);
             border-radius: 10px;
