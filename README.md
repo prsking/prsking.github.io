@@ -5,17 +5,54 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NPPvP - CPvP & Economy Minecraft Server</title>
     <style>
-        body { font-family: Arial, sans-serif; text-align: center; background-color: #1a1a1a; color: white; margin: 0; padding: 0; }
-        header { padding: 20px; background-color: #333; font-size: 24px; font-weight: bold; }
-        .container { max-width: 800px; margin: auto; padding: 20px; }
-        .cta { background-color: #28a745; padding: 15px; margin: 20px auto; display: inline-block; border-radius: 5px; font-size: 18px; }
-        .cta a { color: white; text-decoration: none; }
-        .features { list-style-type: none; padding: 0; }
-        .features li { background: #444; margin: 10px 0; padding: 10px; border-radius: 5px; }
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background: url('https://source.unsplash.com/1600x900/?minecraft') no-repeat center center fixed;
+            background-size: cover;
+            color: white;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.7);
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.6);
+            border-radius: 10px;
+        }
+        .cta {
+            background-color: #28a745;
+            padding: 15px;
+            margin: 20px auto;
+            display: inline-block;
+            border-radius: 5px;
+            font-size: 18px;
+        }
+        .cta a {
+            color: white;
+            text-decoration: none;
+        }
+        .features {
+            list-style-type: none;
+            padding: 0;
+        }
+        .features li {
+            background: #444;
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 5px;
+        }
     </style>
 </head>
 <body>
-    <header>Welcome to NPPvP</header>
+    <header>NPPvP</header>
     <div class="container">
         <h2>About NPPvP</h2>
         <p>NPPvP combines Competitive PvP (CPvP) with a dynamic economy system. Trade, fight, and dominate the battlefield!</p>
@@ -29,7 +66,7 @@
         </ul>
         
         <div class="cta">
-            <a href="#">Join Now - Server IP: play.nppvp.fun</a>
+            <a href="#">Join Now - Server IP: play.nppvp.com</a>
         </div>
     </div>
 </body>
