@@ -1,89 +1,182 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cuisine of Nepal</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    html, body { height: 100%; font-family: Arial, sans-serif; overflow-x: hidden; }
-    #background-slider {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-size: cover;
-      background-position: center;
-      z-index: -1;
-      opacity: 0;
-      animation: fadeInBackground 2s forwards;
-    }
-    @keyframes fadeInBackground { from { opacity: 0; } to { opacity: 1; } }
-    .navbar {
-      position: fixed;
-      top: 20px;
-      width: 100%;
-      text-align: center;
-      z-index: 1000;
-    }
-    .navbar a {
-      color: white;
-      text-decoration: none;
-      font-size: 20px;
-      margin: 0 15px;
-      transition: transform 0.3s, color 0.3s;
-    }
-    .navbar a:hover {
-      transform: scale(1.2);
-      color: #f9a826;
-    }
-    .container {
-      position: relative;
-      z-index: 1;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding: 20px;
-      animation: slideUp 1s ease-out;
-    }
-    @keyframes slideUp { from { transform: translateY(30px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
-    h1 { font-size: 3.5em; margin-bottom: 20px; text-shadow: 2px 2px 4px rgba(0,0,0,0.7); }
-    p { font-size: 1.2em; margin-bottom: 30px; text-shadow: 1px 1px 3px rgba(0,0,0,0.7); }
-    .button {
-      padding: 15px 30px;
-      font-size: 1.2em;
-      background: #f9a826;
-      color: #000;
-      border: none;
-      border-radius: 5px;
-      text-decoration: none;
-      cursor: pointer;
-      transition: background 0.3s, transform 0.3s;
-      box-shadow: 2px 2px 5px rgba(0,0,0,0.5);
-    }
-    .button:hover { background: #ffbf00; transform: scale(1.1); }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nepali Cuisine</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        
+        /* Navbar Styles */
+        .navbar {
+            background-color: #333;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            padding: 10px 0;
+        }
+        .navbar ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        .navbar ul li {
+            display: inline-block;
+        }
+        .navbar ul li a {
+            color: white;
+            padding: 14px 20px;
+            text-decoration: none;
+            display: block;
+        }
+        .navbar ul li a:hover {
+            background-color: #575757;
+            transition: background-color 0.3s;
+        }
+
+        /* Section for Nepali Cuisine */
+        .cuisine-section {
+            padding: 120px 20px 50px 20px;
+            background-color: #ffffff;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 2s ease-out;
+        }
+        .cuisine-title {
+            font-size: 40px;
+            color: #e63946;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+            animation: slideInFromLeft 1s ease-out;
+        }
+        .cuisine-text {
+            font-size: 18px;
+            line-height: 1.6;
+            color: #555;
+            margin: 0 auto;
+            max-width: 900px;
+            opacity: 0;
+            animation: fadeInText 2s forwards 1s;
+        }
+        .btn {
+            padding: 15px 30px;
+            background-color: #e63946;
+            color: black; /* Changed text color to black */
+            font-size: 18px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 30px;
+            display: inline-block;
+            box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3);
+            transition: 0.3s;
+            opacity: 0;
+            animation: fadeIn 2s forwards 2s;
+        }
+        .btn:hover {
+            background-color: #ff4d6d;
+            transform: translateY(-3px);
+            animation: bounce 0.3s ease-out;
+        }
+
+        /* Cuisine Image */
+        .cuisine-image {
+            width: 100%;
+            max-width: 800px;
+            height: auto;
+            margin-top: 30px;
+            opacity: 0;
+            animation: fadeInImage 2s forwards 1s;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeInText {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeInImage {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideInFromLeft {
+            0% {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes bounce {
+            0% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-5px);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+    </style>
 </head>
 <body>
-  <div id="background-slider" style="background-image: url('https://images.unsplash.com/photo-1555396273-367ea4eb4db5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80');"></div>
-  
-  <div class="navbar">
-    <a href="index.html">Home</a>
-    <a href="culture.html">Culture</a>
-    <a href="cuisine.html">Cuisine</a>
-    <a href="destinations.html">Destinations</a>
-    <a href="people.html">People</a>
-    <a href="history.html">History</a>
-  </div>
-  
-  <div class="container">
-    <h1>Cuisine of Nepal</h1>
-    <p>Experience the rich flavors of Nepali cuisine. From hearty Dal Bhat to delicious Momos, taste the culinary traditions that make Nepal unique.</p>
-    <a href="index.html" class="button">Back to Home</a>
-  </div>
+
+    <!-- Navbar -->
+    <div class="navbar">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="people.html">People</a></li>
+            <li><a href="culture.html">Culture</a></li>
+            <li><a href="cuisine.html">Cuisine</a></li>
+            <li><a href="destinations.html">Destinations</a></li>
+            <li><a href="history.html">History</a></li>
+        </ul>
+    </div>
+
+    <!-- Cuisine Section -->
+    <div class="cuisine-section">
+        <h1 class="cuisine-title">Explore the Delicious Nepali Cuisine</h1>
+        <div class="cuisine-text">
+            <p>Nepal's cuisine is a reflection of its diverse ethnic groups, geography, and rich traditions. From the hills to the Terai, Nepali food is known for its vibrant flavors, spices, and hearty ingredients.</p>
+            <p>The staple food of Nepal is **dal bhat** (lentil soup with rice), which is eaten daily in various forms. However, Nepali cuisine is much more than just dal bhat – it includes a wide variety of dishes, such as **momo** (dumplings), **sel roti** (sweet rice doughnuts), and **gundruk** (fermented leafy greens).</p>
+            <p>Nepali food also includes many rich curries, chutneys, and street food items that have been influenced by the neighboring cultures of India, Tibet, and China. Whether it's **chatamari** (Nepali pizza) or **thukpa** (noodle soup), Nepali cuisine is diverse and full of flavor!</p>
+            <p>Let’s explore some of the most popular and delicious Nepali dishes that you can try during your visit!</p>
+        </div>
+        <!-- Optional Cuisine Image -->
+        <img src="https://via.placeholder.com/800x400" alt="Nepali Cuisine" class="cuisine-image">
+        <a href="destinations.html" class="btn">Discover Nepali Destinations</a>
+    </div>
+
 </body>
 </html>
