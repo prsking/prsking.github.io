@@ -26,9 +26,10 @@
             list-style-type: none;
             margin: 0;
             padding: 0;
+            text-align: center;
         }
         nav ul li {
-            float: left;
+            display: inline-block;
         }
         nav ul li a {
             display: block;
@@ -42,6 +43,10 @@
         }
         .container {
             margin-top: 120px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
         }
         h1 {
             font-size: 50px;
