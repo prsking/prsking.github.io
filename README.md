@@ -15,17 +15,23 @@
         }
         .info-bar {
             background: rgba(255, 255, 255, 0.2);
-            padding: 10px;
-            font-size: 16px;
+            padding: 15px;
+            font-size: 18px;
             backdrop-filter: blur(10px);
             position: fixed;
             width: 100%;
             top: 0;
             left: 0;
             z-index: 1000;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+        .info-bar span {
+            margin: 0 15px;
         }
         .container {
-            margin-top: 100px;
+            margin-top: 120px;
         }
         h1 {
             font-size: 50px;
@@ -56,7 +62,13 @@
     </style>
 </head>
 <body>
-    <div class="info-bar">🌍 Discover Nepal - Land of the Himalayas, Rich Culture, and Beautiful Destinations! 🇳🇵</div>
+    <div class="info-bar">
+        <span>🌍 Discover Nepal</span>
+        <span>🏔️ Home of the Himalayas</span>
+        <span>🎭 Rich Cultural Heritage</span>
+        <span>🍛 Delicious Cuisine</span>
+        <span>📍 Must-Visit Destinations</span>
+    </div>
     <div class="container">
         <h1>Welcome to Nepal</h1>
         <p>Discover the majestic beauty, vibrant culture, and rich history of Nepal. Explore the pages to learn more!</p>
