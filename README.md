@@ -79,13 +79,13 @@
 <body>
     <nav>
         <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#people">People</a></li>
-            <li><a href="#culture">Culture</a></li>
-            <li><a href="#cuisine">Cuisine</a></li>
-            <li><a href="#destinations">Destinations</a></li>
-            <li><a href="#history">History</a></li>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="people.html">People</a></li>
+            <li><a href="culture.html">Culture</a></li>
+            <li><a href="cuisine.html">Cuisine</a></li>
+            <li><a href="destinations.html">Destinations</a></li>
+            <li><a href="history.html">History</a></li>
         </ul>
     </nav>
     <div class="container">
