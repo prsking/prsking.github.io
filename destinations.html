@@ -10,6 +10,7 @@
             margin: 0;
             padding: 0;
             background: #f0f0f0;
+            overflow-x: hidden;
         }
         .navbar {
             background-color: #333;
@@ -19,6 +20,7 @@
             left: 0;
             width: 100%;
             z-index: 1000;
+            animation: fadeIn 1s ease-in-out;
         }
         .navbar ul {
             list-style-type: none;
@@ -38,28 +40,31 @@
         }
         .navbar ul li a:hover {
             background-color: #575757;
+            transition: background-color 0.3s;
         }
         .content {
             padding: 120px 20px;
             text-align: center;
-            background-color: #fff;
-            background-image: url('https://www.rajaramdas.com.np/2023/02/popular-destinations-in-nepal.html'); /* External Image */
-            background-size: cover;
-            background-position: center center;
-            color: white;
+            background-color: #ffffff;
+            color: #333;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            animation: fadeInUp 1s ease-out;
         }
         .section-title {
             font-size: 40px;
             color: #e63946;
             margin-bottom: 20px;
             text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+            animation: slideInFromLeft 1s ease-out;
         }
         .section-text {
             font-size: 18px;
             line-height: 1.6;
-            color: #fff;
+            color: #555;
             margin: 0 auto;
             max-width: 800px;
+            opacity: 0;
+            animation: fadeIn 1.5s forwards 0.5s;
         }
         .section-text p {
             margin-bottom: 20px;
@@ -75,10 +80,44 @@
             display: inline-block;
             box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3);
             transition: 0.3s;
+            opacity: 0;
+            animation: fadeIn 1.5s forwards 1s;
         }
         .btn:hover {
             background-color: #ff4d6d;
             transform: translateY(-3px);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+        
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInFromLeft {
+            0% {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
         }
     </style>
 </head>
