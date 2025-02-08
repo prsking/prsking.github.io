@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The People of Nepal</title>
     <style>
-        /* Reset some default styling */
+        /* General Reset */
         * {
             margin: 0;
             padding: 0;
@@ -17,6 +17,7 @@
             background-color: #f4f4f4;
             color: #333;
             line-height: 1.6;
+            overflow-x: hidden;
         }
 
         /* Navbar */
@@ -24,6 +25,11 @@
             background-color: #333;
             padding: 14px;
             text-align: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
         }
 
         .navbar ul {
@@ -39,7 +45,7 @@
             color: white;
             text-decoration: none;
             font-size: 18px;
-            padding: 10px;
+            padding: 12px;
             transition: background-color 0.3s ease;
         }
 
@@ -58,6 +64,7 @@
             color: white;
             text-align: center;
             position: relative;
+            overflow: hidden;
         }
 
         .hero::after {
@@ -67,22 +74,23 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.5);
+            background: rgba(0, 0, 0, 0.6);
         }
 
         .hero h1 {
             z-index: 1;
-            font-size: 48px;
+            font-size: 50px;
             color: #e63946;
-            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+            text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.4);
         }
 
         .hero p {
             z-index: 1;
-            font-size: 18px;
+            font-size: 20px;
             color: #fff;
             max-width: 800px;
             margin: 20px auto;
+            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4);
         }
 
         .btn {
@@ -95,6 +103,7 @@
             text-decoration: none;
             border-radius: 5px;
             transition: background-color 0.3s ease, transform 0.3s ease;
+            margin-top: 20px;
         }
 
         .btn:hover {
@@ -109,12 +118,15 @@
 
         /* Content Section */
         .content {
-            padding: 50px 20px;
+            padding: 60px 20px;
             text-align: center;
+            background-color: #fff;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            margin-top: -20px;
         }
 
         .content h2 {
-            font-size: 32px;
+            font-size: 36px;
             color: #333;
             margin-bottom: 20px;
         }
@@ -123,8 +135,40 @@
             font-size: 18px;
             color: #555;
             max-width: 900px;
+            margin: 0 auto 30px auto;
+            line-height: 1.8;
+        }
+
+        /* Section Styling */
+        .section {
+            padding: 60px 20px;
+            background-color: #f7f7f7;
+            text-align: center;
+        }
+
+        .section h3 {
+            font-size: 28px;
+            color: #e63946;
+            margin-bottom: 20px;
+        }
+
+        .section p {
+            font-size: 18px;
+            color: #333;
+            max-width: 850px;
             margin: 0 auto;
             line-height: 1.8;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            position: relative;
+            bottom: 0;
+            width: 100%;
         }
 
     </style>
@@ -146,15 +190,33 @@
     <!-- Hero Section -->
     <div class="hero">
         <h1>The People of Nepal</h1>
-        <p>Nepal is a country of diverse people with rich cultural traditions. Explore the vibrant communities that call Nepal home.</p>
+        <p>Discover the diverse cultures, traditions, and warm hospitality that make the people of Nepal so unique.</p>
         <a href="culture.html" class="btn">Learn More About Nepal's Culture</a>
     </div>
 
-    <!-- Content Section -->
+    <!-- Main Content Section -->
     <div class="content">
-        <h2>Explore Nepal's Rich Diversity</h2>
-        <p>Nepal is a country full of cultural richness and diversity. From the Sherpas of the mountains to the Terai people, Nepal’s communities are deeply rooted in tradition, religion, and a strong sense of community. Each ethnic group has unique customs, traditions, and ways of life that make Nepal one of the most vibrant countries in the world.</p>
+        <h2>Explore Nepal’s Rich Diversity</h2>
+        <p>Nepal is a country brimming with cultural heritage. It is home to a diverse range of ethnic groups, each with its own unique traditions, languages, and customs. From the mountainous regions where the Sherpas reside to the lowland Terai communities, Nepal’s people represent a beautiful mosaic of history and culture.</p>
+        <p>The hospitality of the Nepali people is unmatched. No matter where you go, you're likely to receive a warm greeting and feel a deep sense of connection. The hospitality extends beyond just physical spaces; it’s rooted in the everyday interactions that create bonds between strangers, neighbors, and families alike.</p>
+        <p>Join us in exploring the lives of these remarkable people, who live in harmony with nature, celebrate rich festivals, and preserve a heritage that spans centuries.</p>
     </div>
+
+    <!-- Additional Section -->
+    <div class="section">
+        <h3>Life in the Mountains</h3>
+        <p>Life in the high Himalayas is tough but rewarding. The Sherpas, known for their incredible mountaineering skills, call these towering peaks home. Their way of life is deeply connected to the mountains, and they hold sacred the mountains that provide them both sustenance and a spiritual connection.</p>
+    </div>
+
+    <div class="section">
+        <h3>Life in the Terai</h3>
+        <p>The Terai region is home to a different way of life, where agriculture and farming play a central role. The communities here have developed their own distinct culture, which includes vibrant festivals, music, and art, all deeply rooted in the fertile plains of the region.</p>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 The People of Nepal | All Rights Reserved</p>
+    </footer>
 
 </body>
 </html>
