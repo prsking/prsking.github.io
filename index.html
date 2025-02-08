@@ -81,7 +81,7 @@
             <li><a href="culture.html">Culture</a></li>
             <li><a href="cuisine.html">Cuisine</a></li>
             <li><a href="destinations.html">Destinations</a></li>
-            <li><a href="history.html">History</a></li>
+            <li><a href="seasons.hmtl">History</a></li>
         </ul>
     </nav>
     <div class="container">
@@ -97,7 +97,7 @@
         <a href="culture.html" class="btn">Explore Culture</a>
         <a href="cuisine.html" class="btn">Explore Cuisine</a>
         <a href="destinations.html" class="btn">Explore Destinations</a>
-        <a href="history.html" class="btn">Explore History</a>
+        <a href="seasons.html" class="btn">Explore History</a>
     </div>
 </body>
 </html>
