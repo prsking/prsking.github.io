@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The People of Nepal</title>
+    <title>The People</title>
     <style>
         /* General Reset */
         * {
@@ -59,7 +59,7 @@
 
         /* Hero Section */
         .hero {
-            background: url('https://media.istockphoto.com/id/623985488/photo/prayer-flags-and-mt-annapurna-i-background.jpg?s=612x612&w=0&k=20&c=h_EoylUS8tWyQS1fJy8Z2b13ai1jt02aRH9hYB23OYI=') center/cover no-repeat;
+            background: url('https://via.placeholder.com/1200x800') center/cover no-repeat;
             height: 100vh;
             display: flex;
             justify-content: center;
@@ -87,13 +87,6 @@
             color: #e63946;
             text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.4);
             animation: slideInFromTop 1s ease-out;
-            transform: rotate(-90deg); /* This rotates the text */
-            white-space: nowrap;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform-origin: center center;
-            transform: translate(-50%, -50%) rotate(-90deg); /* Centering the title and rotating */
         }
 
         .hero p {
@@ -106,53 +99,28 @@
             animation: fadeInText 2s ease-out;
         }
 
-        .btn {
-            z-index: 1;
-            display: inline-block;
-            background-color: #e63946;
-            color: white;
-            padding: 14px 30px;
-            font-size: 18px;
-            text-decoration: none;
-            border-radius: 5px;
-            transition: background-color 0.3s ease, transform 0.3s ease;
-            margin-top: 20px;
-        }
-
-        .btn:hover {
-            background-color: #ff4d6d;
-            transform: translateY(-3px);
-        }
-
-        .btn:active {
-            background-color: #d41c50;
-            transform: translateY(0);
-        }
-
-        /* Main Content Section */
-        .content {
-            padding: 80px 20px;
-            text-align: center;
+        /* About Section */
+        .about {
+            padding: 60px 20px;
             background-color: #fff;
+            color: #333;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            margin-top: -20px;
+            text-align: center;
             animation: fadeInSection 2s ease-out;
         }
 
-        .content h2 {
+        .about h2 {
             font-size: 36px;
-            color: #333;
+            color: #e63946;
             margin-bottom: 20px;
-            animation: slideInFromLeft 1s ease-out;
         }
 
-        .content p {
+        .about p {
             font-size: 18px;
             color: #555;
-            max-width: 900px;
-            margin: 0 auto 30px auto;
             line-height: 1.8;
-            animation: fadeInText 2s ease-out 0.5s;
+            max-width: 900px;
+            margin: 20px auto;
         }
 
         /* Section Styling */
@@ -216,17 +184,6 @@
             }
         }
 
-        @keyframes slideInFromLeft {
-            0% {
-                opacity: 0;
-                transform: translateX(-50px);
-            }
-            100% {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
         @keyframes slideInFromTop {
             0% {
                 opacity: 0;
@@ -246,6 +203,7 @@
     <div class="navbar">
         <ul>
             <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Me</a></li>
             <li><a href="people.html">People</a></li>
             <li><a href="culture.html">Culture</a></li>
             <li><a href="cuisine.html">Cuisine</a></li>
@@ -256,41 +214,31 @@
 
     <!-- Hero Section -->
     <div class="hero">
-        <h1>The People of Nepal</h1>
-        <p>Discover the diverse cultures, traditions, and warm hospitality that make the people of Nepal so unique.</p>
-        <a href="culture.html" class="btn">Learn More About Nepal's Culture</a>
+        <h1>The People</h1>
+        <p>Learn more about people and cultures around the world.</p>
     </div>
 
-    <!-- Main Content Section -->
-    <div class="content">
-        <h2>Explore Nepal’s Rich Diversity</h2>
-        <p>Nepal is a country brimming with cultural heritage. It is home to a diverse range of ethnic groups, each with its own unique traditions, languages, and customs. From the mountainous regions where the Sherpas reside to the lowland Terai communities, Nepal’s people represent a beautiful mosaic of history and culture.</p>
-        <p>The hospitality of the Nepali people is unmatched. No matter where you go, you're likely to receive a warm greeting and feel a deep sense of connection. The hospitality extends beyond just physical spaces; it’s rooted in the everyday interactions that create bonds between strangers, neighbors, and families alike.</p>
-        <p>Join us in exploring the lives of these remarkable people, who live in harmony with nature, celebrate rich festivals, and preserve a heritage that spans centuries.</p>
-
-        <p>The people of Nepal lead simple yet incredibly fulfilling lives. Whether they are in the remote villages or in the bustling cities, their connection to nature and community remains at the heart of their daily existence. Traditional farming methods, ancient architectural styles, and close-knit communities have all helped to shape their identity. Nepal’s unique geography, from the towering Himalayas to the fertile Terai plains, has also played a key role in shaping the lifestyle of its people.</p>
-
-        <p>Despite the challenges that many Nepali communities face, such as the effects of natural disasters or economic constraints, the people remain resilient. They have found ways to adapt and thrive in a changing world while maintaining the essence of their culture and traditions. From celebrating vibrant festivals like Dashain and Tihar to preserving ancient art forms and rituals, the Nepali people continue to pass down their cultural knowledge through generations.</p>
-
-        <p>The influence of religion, especially Buddhism and Hinduism, is deeply woven into the daily life of the Nepali people. The temples, stupas, and monasteries scattered throughout the country serve as places of worship and community gathering, allowing locals to stay grounded in their spiritual practices while connecting with each other.</p>
-
-        <p>Overall, Nepal’s cultural richness is a testament to the resilience, warmth, and harmony of its people. By understanding their way of life, we not only gain insight into Nepal’s traditions but also into the universal values of hospitality, respect, and community that unite us all.</p>
+    <!-- About Me Section -->
+    <div class="about">
+        <h2>About the People</h2>
+        <p>People from all walks of life contribute to the diverse mosaic of cultures, customs, and traditions that make the world a vibrant place. From ancient civilizations to modern societies, the people of the world have shaped history through their actions, beliefs, and contributions to science, art, and culture.</p>
+        <p>People are more than just individuals; they are part of communities, families, and societies that thrive on connection, empathy, and shared experiences. Understanding different cultures and the unique stories of people from various regions of the world helps us appreciate the diversity of the human experience.</p>
     </div>
 
-    <!-- Additional Section -->
+    <!-- More Sections -->
     <div class="section">
-        <h3>Life in the Mountains</h3>
-        <p>Life in the high Himalayas is tough but rewarding. The Sherpas, known for their incredible mountaineering skills, call these towering peaks home. Their way of life is deeply connected to the mountains, and they hold sacred the mountains that provide them both sustenance and a spiritual connection.</p>
+        <h3>Global Diversity</h3>
+        <p>The world is home to thousands of unique cultures and languages, each contributing to a broader understanding of what it means to be human. People from different backgrounds bring their traditions, food, art, and history into the mix, creating a dynamic and constantly evolving world.</p>
     </div>
 
     <div class="section">
-        <h3>Life in the Terai</h3>
-        <p>The Terai region is home to a different way of life, where agriculture and farming play a central role. The communities here have developed their own distinct culture, which includes vibrant festivals, music, and art, all deeply rooted in the fertile plains of southern Nepal.</p>
+        <h3>The Importance of Connection</h3>
+        <p>At the heart of every community is a connection between people. Whether through shared values, common experiences, or mutual respect, connecting with others fosters understanding, peace, and progress. Embracing diversity in all its forms enriches our lives and strengthens the ties that bind us together.</p>
     </div>
 
     <!-- Footer -->
     <footer>
-        <p>© 2025 The People of Nepal. All rights reserved.</p>
+        <p>© 2025 All rights reserved.</p>
     </footer>
 
 </body>
