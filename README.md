@@ -42,7 +42,7 @@
             background-color: #575757;
         }
         .container {
-            margin-top: 120px;
+            margin-top: 50px;  /* Reduced margin to bring buttons higher */
         }
         h1 {
             font-size: 50px;
