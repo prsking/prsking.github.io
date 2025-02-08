@@ -43,10 +43,6 @@
         }
         .container {
             margin-top: 120px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
         }
         h1 {
             font-size: 50px;
@@ -79,7 +75,7 @@
 <body>
     <nav>
         <ul>
-            <li><a href="index.html">Home</a></li>
+            <li><a href="home.html">Home</a></li>
             <li><a href="about.html">About</a></li>
             <li><a href="people.html">People</a></li>
             <li><a href="culture.html">Culture</a></li>
