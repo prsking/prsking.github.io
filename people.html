@@ -18,6 +18,7 @@
             color: #333;
             line-height: 1.8;
             overflow-x: hidden;
+            scroll-behavior: smooth;
         }
 
         /* Navbar */
@@ -67,6 +68,7 @@
             text-align: center;
             position: relative;
             overflow: hidden;
+            animation: fadeIn 2s ease-out;
         }
 
         .hero::after {
@@ -84,6 +86,7 @@
             font-size: 50px;
             color: #e63946;
             text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.4);
+            animation: slideInFromTop 1s ease-out;
         }
 
         .hero p {
@@ -93,6 +96,7 @@
             max-width: 800px;
             margin: 20px auto;
             text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4);
+            animation: fadeInText 2s ease-out;
         }
 
         .btn {
@@ -125,12 +129,14 @@
             background-color: #fff;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
             margin-top: -20px;
+            animation: fadeInSection 2s ease-out;
         }
 
         .content h2 {
             font-size: 36px;
             color: #333;
             margin-bottom: 20px;
+            animation: slideInFromLeft 1s ease-out;
         }
 
         .content p {
@@ -139,6 +145,7 @@
             max-width: 900px;
             margin: 0 auto 30px auto;
             line-height: 1.8;
+            animation: fadeInText 2s ease-out 0.5s;
         }
 
         /* Section Styling */
@@ -146,6 +153,7 @@
             padding: 60px 20px;
             background-color: #f7f7f7;
             text-align: center;
+            animation: fadeInSection 2s ease-out 1s;
         }
 
         .section h3 {
@@ -171,6 +179,56 @@
             position: relative;
             bottom: 0;
             width: 100%;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeInText {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeInSection {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideInFromLeft {
+            0% {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInFromTop {
+            0% {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
     </style>
@@ -216,13 +274,11 @@
     <div class="section">
         <h3>Life in the Mountains</h3>
         <p>Life in the high Himalayas is tough but rewarding. The Sherpas, known for their incredible mountaineering skills, call these towering peaks home. Their way of life is deeply connected to the mountains, and they hold sacred the mountains that provide them both sustenance and a spiritual connection.</p>
-        <p>Living in such high altitudes comes with its challenges, including extreme weather conditions and the physical demands of daily life. However, the Sherpas have developed unique survival skills and a deep understanding of their environment, which has made them some of the most successful climbers in the world.</p>
     </div>
 
     <div class="section">
         <h3>Life in the Terai</h3>
         <p>The Terai region is home to a different way of life, where agriculture and farming play a central role. The communities here have developed their own distinct culture, which includes vibrant festivals, music, and art, all deeply rooted in the fertile plains of the region.</p>
-        <p>While the people of the Terai share many cultural practices with their mountain counterparts, their lifestyle is influenced by the agricultural cycles that dominate the region. Rice and wheat are staples, and the farming traditions have been passed down for generations. The Terai’s abundant resources allow its people to maintain a close connection to the land, and the region has become an agricultural hub of Nepal.</p>
     </div>
 
     <!-- Footer -->
