@@ -3,157 +3,87 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The People</title>
+    <title>The People of Nepal</title>
     <style>
-        /* General Reset */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
+        /* General Styles */
         body {
             font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
             background-color: #f4f4f4;
             color: #333;
-            line-height: 1.8;
-            overflow-x: hidden;
-            scroll-behavior: smooth;
         }
-
-        /* Navbar */
+        
+        /* Navbar Styles */
         .navbar {
             background-color: #333;
-            padding: 14px;
-            text-align: center;
             position: fixed;
             width: 100%;
             top: 0;
-            left: 0;
             z-index: 1000;
+            padding: 10px 0;
         }
-
         .navbar ul {
             list-style-type: none;
             margin: 0;
             padding: 0;
+            text-align: center;
         }
-
         .navbar ul li {
-            display: inline;
-            margin-right: 20px;
+            display: inline-block;
         }
-
         .navbar ul li a {
             color: white;
+            padding: 14px 20px;
             text-decoration: none;
-            font-size: 18px;
-            padding: 12px;
-            transition: background-color 0.3s ease;
+            display: block;
         }
-
         .navbar ul li a:hover {
             background-color: #575757;
-            border-radius: 5px;
+            transition: background-color 0.3s;
         }
 
-        /* Hero Section */
-        .hero {
-            background: url('https://via.placeholder.com/1200x800') center/cover no-repeat;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: white;
+        /* Section for People of Nepal */
+        .people-section {
+            padding: 120px 20px 50px 20px;
+            background-color: #ffffff;
             text-align: center;
-            position: relative;
-            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             animation: fadeIn 2s ease-out;
         }
-
-        .hero::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.6);
-        }
-
-        .hero h1 {
-            z-index: 1;
-            font-size: 50px;
-            color: #e63946;
-            text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.4);
-            animation: slideInFromTop 1s ease-out;
-        }
-
-        .hero p {
-            z-index: 1;
-            font-size: 22px;
-            color: #fff;
-            max-width: 800px;
-            margin: 20px auto;
-            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4);
-            animation: fadeInText 2s ease-out;
-        }
-
-        /* About Section */
-        .about {
-            padding: 60px 20px;
-            background-color: #fff;
-            color: #333;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            text-align: center;
-            animation: fadeInSection 2s ease-out;
-        }
-
-        .about h2 {
-            font-size: 36px;
+        .people-title {
+            font-size: 40px;
             color: #e63946;
             margin-bottom: 20px;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+            animation: slideInFromLeft 1s ease-out;
         }
-
-        .about p {
+        .people-text {
             font-size: 18px;
+            line-height: 1.6;
             color: #555;
-            line-height: 1.8;
-            max-width: 900px;
-            margin: 20px auto;
-        }
-
-        /* Section Styling */
-        .section {
-            padding: 60px 20px;
-            background-color: #f7f7f7;
-            text-align: center;
-            animation: fadeInSection 2s ease-out 1s;
-        }
-
-        .section h3 {
-            font-size: 28px;
-            color: #e63946;
-            margin-bottom: 20px;
-        }
-
-        .section p {
-            font-size: 18px;
-            color: #333;
-            max-width: 850px;
             margin: 0 auto;
-            line-height: 1.8;
+            max-width: 900px;
+            opacity: 0;
+            animation: fadeInText 2s forwards 1s;
         }
-
-        /* Footer */
-        footer {
-            background-color: #333;
-            color: white;
-            text-align: center;
-            padding: 20px;
-            position: relative;
-            bottom: 0;
-            width: 100%;
+        .btn {
+            padding: 15px 30px;
+            background-color: #e63946;
+            color: black; /* Changed text color to black */
+            font-size: 18px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 30px;
+            display: inline-block;
+            box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3);
+            transition: 0.3s;
+            opacity: 0;
+            animation: fadeIn 2s forwards 2s;
+        }
+        .btn:hover {
+            background-color: #ff4d6d;
+            transform: translateY(-3px);
         }
 
         /* Animations */
@@ -175,23 +105,14 @@
             }
         }
 
-        @keyframes fadeInSection {
+        @keyframes slideInFromLeft {
             0% {
                 opacity: 0;
+                transform: translateX(-50px);
             }
             100% {
                 opacity: 1;
-            }
-        }
-
-        @keyframes slideInFromTop {
-            0% {
-                opacity: 0;
-                transform: translateY(-50px);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0);
+                transform: translateX(0);
             }
         }
 
@@ -203,7 +124,6 @@
     <div class="navbar">
         <ul>
             <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About Me</a></li>
             <li><a href="people.html">People</a></li>
             <li><a href="culture.html">Culture</a></li>
             <li><a href="cuisine.html">Cuisine</a></li>
@@ -212,34 +132,16 @@
         </ul>
     </div>
 
-    <!-- Hero Section -->
-    <div class="hero">
-        <h1>The People</h1>
-        <p>Learn more about people and cultures around the world.</p>
+    <!-- People Section -->
+    <div class="people-section">
+        <h1 class="people-title">The People of Nepal</h1>
+        <div class="people-text">
+            <p>Nepal is home to a diverse array of ethnic groups and cultures, each with unique traditions and customs. The people of Nepal are known for their warmth, hospitality, and deep-rooted sense of community. From the highlands to the Terai, Nepali people maintain a close connection with nature, religion, and their heritage.</p>
+            <p>Among the many ethnic communities in Nepal are the Sherpas, Gurungs, Tharus, and Newars, each playing a significant role in the social and cultural fabric of the country. Their distinct languages, attire, and customs add a rich layer to the cultural landscape of Nepal.</p>
+            <p>Despite the country's geographical diversity, one thing that unites the people of Nepal is their deep spirituality, their love for their traditions, and their welcoming nature. Visitors to Nepal often find themselves touched by the genuine kindness of the Nepali people.</p>
+        </div>
+        <a href="culture.html" class="btn">Explore Nepal's Culture</a>
     </div>
-
-    <!-- About Me Section -->
-    <div class="about">
-        <h2>About the People</h2>
-        <p>People from all walks of life contribute to the diverse mosaic of cultures, customs, and traditions that make the world a vibrant place. From ancient civilizations to modern societies, the people of the world have shaped history through their actions, beliefs, and contributions to science, art, and culture.</p>
-        <p>People are more than just individuals; they are part of communities, families, and societies that thrive on connection, empathy, and shared experiences. Understanding different cultures and the unique stories of people from various regions of the world helps us appreciate the diversity of the human experience.</p>
-    </div>
-
-    <!-- More Sections -->
-    <div class="section">
-        <h3>Global Diversity</h3>
-        <p>The world is home to thousands of unique cultures and languages, each contributing to a broader understanding of what it means to be human. People from different backgrounds bring their traditions, food, art, and history into the mix, creating a dynamic and constantly evolving world.</p>
-    </div>
-
-    <div class="section">
-        <h3>The Importance of Connection</h3>
-        <p>At the heart of every community is a connection between people. Whether through shared values, common experiences, or mutual respect, connecting with others fosters understanding, peace, and progress. Embracing diversity in all its forms enriches our lives and strengthens the ties that bind us together.</p>
-    </div>
-
-    <!-- Footer -->
-    <footer>
-        <p>© 2025 All rights reserved.</p>
-    </footer>
 
 </body>
 </html>
