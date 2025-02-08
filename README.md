@@ -8,7 +8,7 @@
         body {
             font-family: 'Poppins', sans-serif;
             text-align: center;
-            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('your-image-url.jpg') no-repeat center center/cover;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1529688560453-1c7983b057f9') no-repeat center center/cover;
             color: white;
             margin: 0;
             padding: 0;
@@ -93,9 +93,9 @@
         <h1>Welcome to Nepal</h1>
         <p>Discover the majestic beauty, vibrant culture, and rich history of Nepal. Explore the pages to learn more!</p>
         
-        <!-- Add your image here -->
+        <!-- Beautiful Image of Nepal -->
         <div class="image-container">
-            <img src="your-image-url.jpg" alt="Beautiful Nepal">
+            <img src="https://images.unsplash.com/photo-1529688560453-1c7983b057f9" alt="Beautiful Nepal">
         </div>
 
         <a href="people.html" class="btn">Explore People</a>
