@@ -5,15 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Discover Nepal</title>
   <style>
-    /* Reset default margins and set full-height layout */
+    /* Reset defaults and set basic styles */
     html, body {
       margin: 0;
       padding: 0;
       height: 100%;
       font-family: Arial, sans-serif;
       color: white;
+      overflow-x: hidden;
     }
-    /* Background slider styling */
+    /* Background slider container */
     #background-slider {
       position: fixed;
       top: 0;
@@ -49,26 +50,45 @@
       color: white;
       text-decoration: none;
       font-size: 18px;
+      transition: transform 0.3s, color 0.3s;
     }
-    /* Main container styling; add top margin to avoid the navbar */
+    .navbar a:hover {
+      transform: scale(1.2);
+      color: #f9a826;
+    }
+    /* Main container styling (content below navbar) */
     .container {
-      margin-top: 70px; /* height of navbar + some space */
+      margin-top: 70px;
       max-width: 1200px;
       margin-left: auto;
       margin-right: auto;
       padding: 20px;
     }
-    /* Section styling */
+    /* Section styling with fade-in animation */
     .section {
       padding: 50px;
       background: rgba(0, 0, 0, 0.7);
       margin: 20px 0;
       border-radius: 10px;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 1s ease, transform 1s ease;
     }
+    /* Class added when the section is visible */
+    .section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    /* Title with slide-down animation */
     h1 {
       text-align: center;
       font-size: 3em;
       margin-top: 20px;
+      animation: slideDown 1s ease-out;
+    }
+    @keyframes slideDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
     h2 {
       color: #f9a826;
@@ -76,10 +96,10 @@
   </style>
 </head>
 <body>
-  <!-- Background Slider -->
+  <!-- Background slider -->
   <div id="background-slider"></div>
   
-  <!-- Navigation Bar -->
+  <!-- Navigation bar -->
   <div class="navbar">
     <ul>
       <li><a href="#home">Home</a></li>
@@ -91,7 +111,7 @@
     </ul>
   </div>
 
-  <!-- Main Content -->
+  <!-- Main content container -->
   <div class="container">
     <section id="home" class="section">
       <h1>Welcome to Nepal</h1>
@@ -119,8 +139,9 @@
     </section>
   </div>
 
-  <!-- JavaScript for Background Slider -->
+  <!-- JavaScript for background slider and section animations -->
   <script>
+    // Array of Nepal-themed background images
     const images = [
       'https://images.unsplash.com/photo-1519861159239-b6f0c618b9f8?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80',
       'https://images.unsplash.com/photo-1598268397578-171bdf1e6e65?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80',
@@ -136,9 +157,23 @@
       current = (current + 1) % images.length;
     }
     
-    // Initialize the background and update every 5 seconds
+    // Initialize the background slider and update every 5 seconds
     changeBackground();
     setInterval(changeBackground, 5000);
+    
+    // Use Intersection Observer to fade in sections as they enter the viewport
+    document.addEventListener('DOMContentLoaded', function() {
+      const sections = document.querySelectorAll('.section');
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, { threshold: 0.1 });
+      
+      sections.forEach(section => observer.observe(section));
+    });
   </script>
 </body>
 </html>
