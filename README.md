@@ -3,177 +3,158 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Discover Nepal</title>
+  <title>Welcome to Nepal</title>
   <style>
-    /* Reset defaults and set basic styles */
-    html, body {
+    /* Reset & Basic Setup */
+    * {
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
+    }
+    html, body {
       height: 100%;
       font-family: Arial, sans-serif;
-      color: white;
       overflow-x: hidden;
     }
-    /* Background slider container */
+    /* Background Slider Container */
     #background-slider {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      z-index: -1;
       background-size: cover;
       background-position: center;
-      transition: background-image 1s ease-in-out;
+      z-index: -1;
+      opacity: 0;
+      animation: fadeInBackground 2s forwards;
     }
-    /* Navigation bar styling */
+    @keyframes fadeInBackground {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    /* Navigation Bar Styling */
     .navbar {
       position: fixed;
-      top: 0;
-      left: 0;
+      top: 20px;
       width: 100%;
-      background: rgba(0, 0, 0, 0.8);
-      padding: 10px 0;
+      text-align: center;
       z-index: 1000;
-    }
-    .navbar ul {
-      list-style: none;
-      display: flex;
-      justify-content: center;
-      margin: 0;
-      padding: 0;
-    }
-    .navbar li {
-      margin: 0 15px;
     }
     .navbar a {
       color: white;
       text-decoration: none;
-      font-size: 18px;
+      font-size: 20px;
+      margin: 0 15px;
       transition: transform 0.3s, color 0.3s;
     }
     .navbar a:hover {
       transform: scale(1.2);
       color: #f9a826;
     }
-    /* Main container styling (content below navbar) */
+    /* Main Content Container */
     .container {
-      margin-top: 70px;
-      max-width: 1200px;
-      margin-left: auto;
-      margin-right: auto;
-      padding: 20px;
-    }
-    /* Section styling with fade-in animation */
-    .section {
-      padding: 50px;
-      background: rgba(0, 0, 0, 0.7);
-      margin: 20px 0;
-      border-radius: 10px;
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 1s ease, transform 1s ease;
-    }
-    /* Class added when the section is visible */
-    .section.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    /* Title with slide-down animation */
-    h1 {
+      position: relative;
+      z-index: 1;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
       text-align: center;
-      font-size: 3em;
-      margin-top: 20px;
-      animation: slideDown 1s ease-out;
+      padding: 20px;
+      animation: slideUp 1s ease-out;
     }
-    @keyframes slideDown {
-      from { opacity: 0; transform: translateY(-20px); }
-      to { opacity: 1; transform: translateY(0); }
+    @keyframes slideUp {
+      from { transform: translateY(30px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
     }
-    h2 {
-      color: #f9a826;
+    /* Animated Title */
+    h1 {
+      font-size: 3.5em;
+      margin-bottom: 20px;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+      animation: bounce 2s infinite;
+    }
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+      40% { transform: translateY(-20px); }
+      60% { transform: translateY(-10px); }
+    }
+    /* Paragraph Styling */
+    p {
+      font-size: 1.2em;
+      margin-bottom: 30px;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
+    }
+    /* Button Styling & Animation */
+    .button {
+      padding: 15px 30px;
+      font-size: 1.2em;
+      background: #f9a826;
+      color: #000;
+      border: none;
+      border-radius: 5px;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.3s;
+      box-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+    }
+    .button:hover {
+      background: #ffbf00;
+      transform: scale(1.1);
     }
   </style>
 </head>
 <body>
-  <!-- Background slider -->
+  <!-- Background Slider Container -->
   <div id="background-slider"></div>
-  
-  <!-- Navigation bar -->
+
+  <!-- Navigation Bar -->
   <div class="navbar">
-    <ul>
-      <li><a href="#home">Home</a></li>
-      <li><a href="#culture">Culture</a></li>
-      <li><a href="#cuisine">Cuisine</a></li>
-      <li><a href="#destinations">Destinations</a></li>
-      <li><a href="#people">People</a></li>
-      <li><a href="#history">History</a></li>
-    </ul>
+    <a href="index.html">Home</a>
+    <a href="culture.html">Culture</a>
+    <a href="cuisine.html">Cuisine</a>
+    <a href="destinations.html">Destinations</a>
+    <a href="people.html">People</a>
+    <a href="history.html">History</a>
   </div>
 
-  <!-- Main content container -->
+  <!-- Main Content Container -->
   <div class="container">
-    <section id="home" class="section">
-      <h1>Welcome to Nepal</h1>
-      <p>Experience the land of the Himalayas, vibrant cultures, and timeless traditions.</p>
-    </section>
-    <section id="culture" class="section">
-      <h2>Culture & Traditions</h2>
-      <p>Nepal boasts a rich cultural heritage influenced by Hindu and Buddhist traditions, with numerous festivals and rituals celebrated throughout the year.</p>
-    </section>
-    <section id="cuisine" class="section">
-      <h2>Traditional Cuisine</h2>
-      <p>Savor Nepali dishes such as Dal Bhat, Momo, Sel Roti, and various Newari specialties that reflect the country’s diverse culinary heritage.</p>
-    </section>
-    <section id="destinations" class="section">
-      <h2>Famous Destinations</h2>
-      <p>Explore breathtaking attractions like Mount Everest, Pokhara, Lumbini, and the historic Kathmandu Valley.</p>
-    </section>
-    <section id="people" class="section">
-      <h2>People & Languages</h2>
-      <p>Nepal is home to a mosaic of ethnic groups and languages including Nepali, Maithili, Newar, and many more, which add to its vibrant culture.</p>
-    </section>
-    <section id="history" class="section">
-      <h2>History</h2>
-      <p>Discover the rich history of Nepal, from ancient kingdoms and mythological tales to its role in modern South Asian affairs.</p>
-    </section>
+    <h1>Welcome to Nepal</h1>
+    <p>
+      Discover the majestic beauty, vibrant culture, and rich history of Nepal.
+      Explore our pages to learn more about its people, traditions, and breathtaking landscapes.
+    </p>
+    <a href="people.html" class="button">Explore People</a>
   </div>
 
-  <!-- JavaScript for background slider and section animations -->
+  <!-- JavaScript for Background Slider -->
   <script>
     // Array of Nepal-themed background images
     const images = [
       'https://images.unsplash.com/photo-1519861159239-b6f0c618b9f8?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80',
+      'https://images.unsplash.com/photo-1589044041392-c0fd1edb78c2?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80',
       'https://images.unsplash.com/photo-1598268397578-171bdf1e6e65?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80',
-      'https://images.unsplash.com/photo-1566057522804-382e0db61a55?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80',
-      'https://images.unsplash.com/photo-1573164574390-4c0413b6ce92?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80'
+      'https://images.unsplash.com/photo-1566057522804-382e0db61a55?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80'
     ];
-    
     let current = 0;
     const slider = document.getElementById('background-slider');
     
     function changeBackground() {
-      slider.style.backgroundImage = 'url(' + images[current] + ')';
-      current = (current + 1) % images.length;
+      // Fade out effect before changing image
+      slider.style.opacity = 0;
+      setTimeout(() => {
+        slider.style.backgroundImage = 'url(' + images[current] + ')';
+        slider.style.opacity = 1;
+        current = (current + 1) % images.length;
+      }, 1000); // Adjust timing to match fade-out duration
     }
     
-    // Initialize the background slider and update every 5 seconds
+    // Initialize the background slider and update every 6 seconds
     changeBackground();
-    setInterval(changeBackground, 5000);
-    
-    // Use Intersection Observer to fade in sections as they enter the viewport
-    document.addEventListener('DOMContentLoaded', function() {
-      const sections = document.querySelectorAll('.section');
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-          }
-        });
-      }, { threshold: 0.1 });
-      
-      sections.forEach(section => observer.observe(section));
-    });
+    setInterval(changeBackground, 6000);
   </script>
 </body>
 </html>
