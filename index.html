@@ -6,39 +6,41 @@
     <title>Welcome to Nepal</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Poppins', sans-serif;
             text-align: center;
-            background: url('background.jpg') no-repeat center center/cover;
-            color: #333;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('background.jpg') no-repeat center center/cover;
+            color: white;
+            margin: 0;
+            padding: 0;
         }
         .container {
             margin-top: 100px;
         }
         h1 {
-            font-size: 48px;
-            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+            font-size: 50px;
+            text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3);
         }
         p {
-            font-size: 18px;
+            font-size: 20px;
             margin-bottom: 30px;
         }
         .btn {
             display: inline-block;
             padding: 15px 30px;
             margin: 10px;
-            font-size: 18px;
+            font-size: 20px;
             color: white;
-            background: orange;
+            background: #e63946;
             border: none;
-            border-radius: 5px;
+            border-radius: 8px;
             cursor: pointer;
             text-decoration: none;
-            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
-            transition: 0.3s;
+            box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease-in-out;
         }
         .btn:hover {
-            background: darkorange;
-            transform: scale(1.05);
+            background: #ff4d6d;
+            transform: translateY(-3px);
         }
     </style>
 </head>
