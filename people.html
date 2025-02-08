@@ -1,109 +1,167 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>People of Nepal</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    html, body { height: 100%; font-family: Arial, sans-serif; overflow-x: hidden; }
-    #background-slider {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-size: cover;
-      background-position: center;
-      z-index: -1;
-      opacity: 0;
-      animation: fadeInBackground 2s forwards;
-    }
-    @keyframes fadeInBackground {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-    .navbar {
-      position: fixed;
-      top: 20px;
-      width: 100%;
-      text-align: center;
-      z-index: 1000;
-    }
-    .navbar a {
-      color: white;
-      text-decoration: none;
-      font-size: 20px;
-      margin: 0 15px;
-      transition: transform 0.3s, color 0.3s;
-    }
-    .navbar a:hover {
-      transform: scale(1.2);
-      color: #f9a826;
-    }
-    .container {
-      position: relative;
-      z-index: 1;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding: 20px;
-      animation: slideUp 1s ease-out;
-    }
-    @keyframes slideUp {
-      from { transform: translateY(30px); opacity: 0; }
-      to { transform: translateY(0); opacity: 1; }
-    }
-    h1 {
-      font-size: 3.5em;
-      margin-bottom: 20px;
-      text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
-    }
-    p {
-      font-size: 1.2em;
-      margin-bottom: 30px;
-      text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
-    }
-    .button {
-      padding: 15px 30px;
-      font-size: 1.2em;
-      background: #f9a826;
-      color: #000;
-      border: none;
-      border-radius: 5px;
-      text-decoration: none;
-      cursor: pointer;
-      transition: background 0.3s, transform 0.3s;
-      box-shadow: 2px 2px 5px rgba(0,0,0,0.5);
-    }
-    .button:hover {
-      background: #ffbf00;
-      transform: scale(1.1);
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The People of Nepal</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        /* Navbar Styles */
+        .navbar {
+            background-color: #333;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            padding: 10px 0;
+        }
+        .navbar ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        .navbar ul li {
+            display: inline-block;
+        }
+        .navbar ul li a {
+            color: white;
+            padding: 14px 20px;
+            text-decoration: none;
+            display: block;
+        }
+        .navbar ul li a:hover {
+            background-color: #575757;
+            transition: background-color 0.3s;
+        }
+
+        /* People Section */
+        .people-section {
+            padding: 120px 20px 50px 20px;
+            background: url('https://www.istockphoto.com/photo/nepali-women-gm623985488-115471559') no-repeat center center/cover;
+            color: #fff;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 2s ease-out;
+            background-size: cover;
+            position: relative;
+        }
+
+        .people-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+
+        .people-title {
+            font-size: 40px;
+            color: #e63946;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+            animation: slideInFromLeft 1s ease-out;
+            z-index: 2;
+        }
+
+        .people-text {
+            font-size: 18px;
+            line-height: 1.6;
+            color: #fff;
+            margin: 0 auto;
+            max-width: 900px;
+            opacity: 0;
+            animation: fadeInText 2s forwards 1s;
+            z-index: 2;
+        }
+
+        .btn {
+            padding: 15px 30px;
+            background-color: #e63946;
+            color: black; /* Changed text color to black */
+            font-size: 18px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 30px;
+            display: inline-block;
+            box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3);
+            transition: 0.3s;
+            opacity: 0;
+            animation: fadeIn 2s forwards 2s;
+            z-index: 2;
+        }
+        .btn:hover {
+            background-color: #ff4d6d;
+            transform: translateY(-3px);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeInText {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideInFromLeft {
+            0% {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+    </style>
 </head>
 <body>
-  <!-- Background (Static for this page) -->
-  <div id="background-slider" style="background-image: url('https://images.unsplash.com/photo-1598268397578-171bdf1e6e65?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80');"></div>
-  
-  <!-- Navigation Bar -->
-  <div class="navbar">
-    <a href="index.html">Home</a>
-    <a href="culture.html">Culture</a>
-    <a href="cuisine.html">Cuisine</a>
-    <a href="destinations.html">Destinations</a>
-    <a href="people.html">People</a>
-    <a href="history.html">History</a>
-  </div>
-  
-  <!-- Main Content -->
-  <div class="container">
-    <h1>People of Nepal</h1>
-    <p>Learn about the diverse ethnic groups and the cultural mosaic of Nepal. From the high Himalayas to the lowlands, Nepal's people showcase a rich tapestry of traditions and lifestyles.</p>
-    <a href="index.html" class="button">Back to Home</a>
-  </div>
+
+    <!-- Navbar -->
+    <div class="navbar">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="people.html">People</a></li>
+            <li><a href="culture.html">Culture</a></li>
+            <li><a href="cuisine.html">Cuisine</a></li>
+            <li><a href="destinations.html">Destinations</a></li>
+            <li><a href="history.html">History</a></li>
+        </ul>
+    </div>
+
+    <!-- People Section -->
+    <div class="people-section">
+        <h1 class="people-title">The People of Nepal</h1>
+        <div class="people-text">
+            <p>Nepal is a country of diverse people with a rich cultural heritage. The population consists of various ethnic groups, each contributing to the cultural tapestry of Nepal. From the Sherpas of the Himalayas to the Tharu people of the Terai, Nepal's diverse communities are united by their love for their country and their traditions.</p>
+            <p>The people of Nepal are known for their hospitality and warmth. No matter where you travel in Nepal, you're likely to experience a genuine warmth from the people you meet. Their culture is deeply influenced by religion, festivals, and a strong sense of community.</p>
+            <p>The various ethnic groups in Nepal celebrate their traditions with unique customs, festivals, and art forms, making Nepal a melting pot of culture, history, and diversity. The different communities live in harmony, making Nepal one of the most peaceful and inclusive countries in the region.</p>
+        </div>
+        <a href="culture.html" class="btn">Learn More About Nepal's Culture</a>
+    </div>
+
 </body>
 </html>
