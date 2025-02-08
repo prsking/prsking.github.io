@@ -8,7 +8,7 @@
         body {
             font-family: 'Poppins', sans-serif;
             text-align: center;
-            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1529688560453-1c7983b057f9') no-repeat center center/cover;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://media.iatiseguros.com/wp-content/uploads/sites/6/2020/03/25144935/telhados-cidade-patan-nepal.jpg') no-repeat center center/cover;
             color: white;
             margin: 0;
             padding: 0;
@@ -70,17 +70,12 @@
             background: #ff4d6d;
             transform: translateY(-3px);
         }
-        .image-container img {
-            width: 80%;
-            border-radius: 10px;
-            margin: 30px 0;
-        }
     </style>
 </head>
 <body>
     <nav>
         <ul>
-            <li><a href="home.html">Home</a></li>
+            <li><a href="index.html">Home</a></li>
             <li><a href="about.html">About</a></li>
             <li><a href="people.html">People</a></li>
             <li><a href="culture.html">Culture</a></li>
@@ -93,9 +88,9 @@
         <h1>Welcome to Nepal</h1>
         <p>Discover the majestic beauty, vibrant culture, and rich history of Nepal. Explore the pages to learn more!</p>
         
-        <!-- Beautiful Image of Nepal -->
+        <!-- Beautiful Image of Patan City -->
         <div class="image-container">
-            <img src="https://images.unsplash.com/photo-1529688560453-1c7983b057f9" alt="Beautiful Nepal">
+            <img src="https://media.iatiseguros.com/wp-content/uploads/sites/6/2020/03/25144935/telhados-cidade-patan-nepal.jpg" alt="Patan City, Nepal" style="width:100%; height:auto;">
         </div>
 
         <a href="people.html" class="btn">Explore People</a>
