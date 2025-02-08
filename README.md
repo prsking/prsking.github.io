@@ -13,22 +13,32 @@
             margin: 0;
             padding: 0;
         }
-        .info-bar {
-            background: rgba(255, 255, 255, 0.2);
-            padding: 15px;
-            font-size: 18px;
-            backdrop-filter: blur(10px);
+        nav {
+            background-color: #333;
+            overflow: hidden;
             position: fixed;
-            width: 100%;
             top: 0;
             left: 0;
-            z-index: 1000;
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
+            width: 100%;
+            z-index: 999;
         }
-        .info-bar span {
-            margin: 0 15px;
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+        nav ul li {
+            float: left;
+        }
+        nav ul li a {
+            display: block;
+            color: white;
+            padding: 14px 20px;
+            text-align: center;
+            text-decoration: none;
+        }
+        nav ul li a:hover {
+            background-color: #575757;
         }
         .container {
             margin-top: 120px;
@@ -62,13 +72,17 @@
     </style>
 </head>
 <body>
-    <div class="info-bar">
-        <span>🌍 Discover Nepal</span>
-        <span>🏔️ Home of the Himalayas</span>
-        <span>🎭 Rich Cultural Heritage</span>
-        <span>🍛 Delicious Cuisine</span>
-        <span>📍 Must-Visit Destinations</span>
-    </div>
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#people">People</a></li>
+            <li><a href="#culture">Culture</a></li>
+            <li><a href="#cuisine">Cuisine</a></li>
+            <li><a href="#destinations">Destinations</a></li>
+            <li><a href="#history">History</a></li>
+        </ul>
+    </nav>
     <div class="container">
         <h1>Welcome to Nepal</h1>
         <p>Discover the majestic beauty, vibrant culture, and rich history of Nepal. Explore the pages to learn more!</p>
