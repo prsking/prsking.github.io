@@ -3,13 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Join the Nepali Minecraft Community Tournament, Nepal's premier Minecraft esports event with over 3,000 in prizes! Register now.">
-    <meta name="keywords" content="Nepali Minecraft Community, NMC, Minecraft, esports, tournament, Nepal">
+    <meta name="description" content="Join the Nepali Minecraft Community Tournament, Nepal's premier Minecraft esports event with over 3,000 in prizes! Register now and showcase your skills.">
+    <meta name="keywords" content="Nepali Minecraft Community, NMC, Minecraft, esports, tournament, Nepal, gaming, competition, prizes, registration">
     <meta name="author" content="Nepali Minecraft Community">
-    <title>Nepali Minecraft Community Tournament</title>
+    <title>NMC Tournament: Nepal's Premier Minecraft Esports Event</title>
     <link rel="icon" type="image/png" href="favicon.png"> <!-- Replace with your favicon -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
+        /* Your CSS remains unchanged */
         :root {
             --main-bg-color: #050505; /* Almost pure black */
             --header-bg-color: #080808; /* Slightly lighter for distinction */
@@ -376,16 +377,6 @@
             text-shadow: 0 0 25px rgba(var(--accent-red-glow-rgb), 1);
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        @keyframes slideUp {
-            from { opacity: 0; transform: translateY(15px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
         @media (max-width: 768px) {
             .hero h1 { font-size: 2.8em; -webkit-text-stroke: 1.5px var(--accent-gold); }
             .hero h2 { font-size: 2em; }
@@ -434,30 +425,30 @@
 
         <section id="home" class="hero">
             <h1>🇳🇵 Nepali Minecraft Community Presents</h1>
-            <h2>Nepal's Premier Minecraft Tournament</h2>
-            <p>Compete for Over 3,000 in Prizes!</p>
+            <h2>The Ultimate Minecraft Esports Tournament!</h2>
+            <p>Compete for Glory and Over 3,000 in Prizes!</p>
             <a href="#register" class="cta-button">Register Now</a>
         </section>
 
         <section id="register" class="register">
             <div class="register-card">
-                <h2>Join the Tournament</h2>
+                <h2>Secure Your Spot in the Tournament</h2>
                 <form id="register-form">
                     <div class="form-group">
                         <label for="name">Full Name</label>
-                        <input type="text" id="name" name="name" required>
+                        <input type="text" id="name" name="name" required placeholder="Your full name">
                     </div>
                     <div class="form-group">
                         <label for="age">Age</label>
-                        <input type="number" id="age" name="age" min="1" required>
+                        <input type="number" id="age" name="age" min="8" required placeholder="Your age (e.g., 16)">
                     </div>
                     <div class="form-group">
                         <label for="email">Email Address</label>
-                        <input type="email" id="email" name="email" required>
+                        <input type="email" id="email" name="email" required placeholder="Your email address">
                     </div>
                     <div class="form-group">
                         <label for="discord">Discord ID</label>
-                        <input type="text" id="discord" name="discord" title="Enter your Discord ID (e.g., username, username#1234, or ID number)" required>
+                        <input type="text" id="discord" name="discord" title="Enter your Discord ID (e.g., YourUsername#1234 or your User ID)" required placeholder="Your Discord username or ID">
                     </div>
                     <button type="submit" id="submit-button">Submit Registration</button>
                     <div id="form-message" class="form-message"></div>
@@ -468,7 +459,7 @@
         <footer class="footer">
             <p>&copy; 2025 Nepali Minecraft Community. All rights reserved.</p>
             <p>
-                <a href="https://discord.gg/your-discord" target="_blank">Discord</a>
+                <a href="https://discord.gg/your-discord" target="_blank" rel="noopener noreferrer">Join Our Discord Community!</a>
             </p>
         </footer>
     </div>
@@ -530,13 +521,13 @@
 
                 if (!webhookResponse.ok) throw new Error('Webhook request failed');
 
-                formMessage.textContent = 'Registration submitted successfully! Awaiting admin review.';
+                formMessage.textContent = 'Registration submitted successfully! We\'ll be in touch soon with tournament details.';
                 formMessage.classList.add('success');
                 formMessage.style.display = 'block';
                 form.reset();
             } catch (error) {
                 console.error('Error submitting form:', error);
-                formMessage.textContent = 'Error submitting registration. Please try again.';
+                formMessage.textContent = 'Error submitting registration. Please ensure all fields are correct and try again, or contact support.';
                 formMessage.classList.add('error');
                 formMessage.style.display = 'block';
             } finally {
