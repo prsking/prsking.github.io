@@ -15,10 +15,21 @@
 <script>
 particlesJS("particles-js", {
   "particles": {
-    "number": {"value": 80},
+    "number": {"value": 100},
     "size": {"value": 3},
-    "move": {"speed": 2},
-    "line_linked": {"enable": true}
+    "color": {"value": ["#ff0000", "#ffd700", "#ffffff"]}, // red, gold, white
+    "move": {
+      "direction": "bottom", // fall down
+      "speed": 2,
+      "straight": true
+    },
+    "opacity": {"value": 0.8},
+    "line_linked": {"enable": false}
+  },
+  "interactivity": {
+    "events": {
+      "onhover": {"enable": true, "mode": "repulse"}
+    }
   }
 });
 </script>
@@ -28,70 +39,85 @@ particlesJS("particles-js", {
 #hero {
   position: relative;
   height: 100vh;
-  background: url('https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e') center/cover no-repeat;
+  background: #000; /* solid black */
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
   color: white;
   overflow: hidden;
+  font-family: 'Poppins', sans-serif;
 }
 
 .hero-overlay {
   position: absolute;
   top: 0; left: 0; right: 0; bottom: 0;
-  background: rgba(0,0,0,0.6);
+  background: linear-gradient(180deg, rgba(0,0,0,0.9), rgba(0,0,0,0.6));
 }
 
 .hero-content {
   position: relative;
   z-index: 2;
-  max-width: 800px;
+  max-width: 900px;
+  padding: 20px;
+  animation: fadeIn 2s ease forwards;
 }
 
 .hero-title {
-  font-size: 3.5rem;
-  font-weight: bold;
-  margin-bottom: 10px;
-  animation: fadeInDown 1.5s ease;
+  font-size: 4rem;
+  font-weight: 800;
+  background: linear-gradient(90deg, #ff0000, #ffd700);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 15px;
+  animation: slideDown 1.5s ease;
 }
 
 .hero-subtitle {
   font-size: 2rem;
+  color: #ffcc00;
   margin-bottom: 15px;
-  animation: fadeInUp 1.5s ease;
+  animation: slideUp 1.5s ease;
 }
 
 .hero-prize span {
-  color: #ffcc00;
+  color: #ff0000;
   font-weight: bold;
   font-size: 1.5rem;
 }
 
 .hero-btn {
   display: inline-block;
-  padding: 15px 30px;
-  background: #ff4d4d;
-  color: white;
-  font-size: 1.2rem;
-  border-radius: 8px;
-  margin-top: 20px;
+  padding: 15px 35px;
+  background: linear-gradient(45deg, #ff0000, #ffd700);
+  color: black;
+  font-size: 1.3rem;
+  font-weight: bold;
+  border-radius: 50px;
+  margin-top: 25px;
   text-decoration: none;
-  transition: 0.3s;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 15px rgba(255, 0, 0, 0.6);
 }
 
 .hero-btn:hover {
-  background: #ff1a1a;
-  transform: scale(1.05);
+  transform: scale(1.08);
+  box-shadow: 0 0 25px rgba(255, 215, 0, 0.8);
 }
 
-@keyframes fadeInDown {
-  from {opacity: 0; transform: translateY(-30px);}
+/* Animations */
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+@keyframes slideDown {
+  from {opacity: 0; transform: translateY(-50px);}
   to {opacity: 1; transform: translateY(0);}
 }
 
-@keyframes fadeInUp {
-  from {opacity: 0; transform: translateY(30px);}
+@keyframes slideUp {
+  from {opacity: 0; transform: translateY(50px);}
   to {opacity: 1; transform: translateY(0);}
 }
 
