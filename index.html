@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Join the NMC Nepali Gaming Event, Nepal's premier esports tournament with over 3,000 in prizes! Register now.">
-    <meta name="keywords" content="NMC, Nepali Gaming Event, esports, tournament, Nepal">
-    <meta name="author" content="NMC">
-    <title>NMC Nepali Gaming Event</title>
+    <meta name="description" content="Join the Nepali Minecraft Community Tournament, Nepal's premier Minecraft esports event with over 3,000 in prizes! Register now.">
+    <meta name="keywords" content="Nepali Minecraft Community, NMC, Minecraft, esports, tournament, Nepal">
+    <meta name="author" content="Nepali Minecraft Community">
+    <title>Nepali Minecraft Community Tournament</title>
     <link rel="icon" type="image/png" href="favicon.png"> <!-- Replace with your favicon -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
@@ -433,8 +433,8 @@
         </nav>
 
         <section id="home" class="hero">
-            <h1>🇳🇵 NMC Presents</h1>
-            <h2>Nepal's Premier Gaming Event</h2>
+            <h1>🇳🇵 Nepali Minecraft Community Presents</h1>
+            <h2>Nepal's Premier Minecraft Tournament</h2>
             <p>Compete for Over 3,000 in Prizes!</p>
             <a href="#register" class="cta-button">Register Now</a>
         </section>
@@ -456,8 +456,8 @@
                         <input type="email" id="email" name="email" required>
                     </div>
                     <div class="form-group">
-                        <label for="discord">Discord ID (e.g., username#1234)</label>
-                        <input type="text" id="discord" name="discord" pattern=".{3,32}#[0-9]{4}" title="Enter your Discord ID in the format username#1234" required>
+                        <label for="discord">Discord ID</label>
+                        <input type="text" id="discord" name="discord" title="Enter your Discord ID (e.g., username, username#1234, or ID number)" required>
                     </div>
                     <button type="submit" id="submit-button">Submit Registration</button>
                     <div id="form-message" class="form-message"></div>
@@ -466,7 +466,7 @@
         </section>
 
         <footer class="footer">
-            <p>&copy; 2025 NMC. All rights reserved.</p>
+            <p>&copy; 2025 Nepali Minecraft Community. All rights reserved.</p>
             <p>
                 <a href="https://discord.gg/your-discord" target="_blank">Discord</a>
             </p>
@@ -496,25 +496,14 @@
                 submissionId: Date.now().toString() + Math.random().toString(36).substring(2, 15),
             };
 
-            // Validate Discord ID format
-            const discordRegex = /^.{3,32}#[0-9]{4}$/;
-            if (!discordRegex.test(data.discord)) {
-                formMessage.textContent = 'Please enter a valid Discord ID (e.g., username#1234).';
-                formMessage.classList.add('error');
-                formMessage.style.display = 'block';
-                submitButton.disabled = false;
-                submitButton.textContent = 'Submit Registration';
-                return;
-            }
-
             try {
                 const webhookResponse = await fetch(webhookUrl, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({
                         embeds: [{
-                            title: 'New Registration',
-                            description: 'A new user has registered for the NMC Nepali Gaming Event. Please review and react with ✅ to approve or ❌ to reject.',
+                            title: 'New NMC Tournament Registration',
+                            description: 'A new participant has registered for the Nepali Minecraft Community Tournament. Review the details below.',
                             color: 0xFFB800, // Gold color
                             fields: [
                                 { name: 'ID', value: data.submissionId, inline: true },
@@ -523,16 +512,25 @@
                                 { name: 'Email', value: data.email, inline: true },
                                 { name: 'Discord ID', value: data.discord, inline: true },
                             ],
+                            author: {
+                                name: 'Nepali Minecraft Community',
+                                icon_url: 'https://your-logo-url.com/logo.png' // Replace with your logo URL
+                            },
+                            thumbnail: {
+                                url: 'https://your-logo-url.com/thumbnail.png' // Replace with your thumbnail URL
+                            },
+                            footer: {
+                                text: `Nepali Minecraft Community | Submission ID: ${data.submissionId}`,
+                                icon_url: 'https://your-logo-url.com/logo.png' // Replace with your logo URL
+                            },
                             timestamp: new Date(),
-                            footer: { text: 'NMC', icon_url: 'https://your-logo-url.com/logo.png' }, // Replace with your logo URL
-                            thumbnail: { url: 'https://your-logo-url.com/thumbnail.png' }, // Replace with your thumbnail URL
                         }],
                     }),
                 });
 
                 if (!webhookResponse.ok) throw new Error('Webhook request failed');
 
-                formMessage.textContent = 'Registration submitted successfully! Awaiting admin approval.';
+                formMessage.textContent = 'Registration submitted successfully! Awaiting admin review.';
                 formMessage.classList.add('success');
                 formMessage.style.display = 'block';
                 form.reset();
