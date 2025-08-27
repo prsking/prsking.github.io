@@ -1,173 +1,551 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NMC Nepali Event</title>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
-<style>
-/* Reset */
-* {margin:0; padding:0; box-sizing:border-box; font-family:'Poppins', sans-serif;}
-body {background:#0a0a0a; color:white;}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Join the NMC Nepali Gaming Event, Nepal's premier esports tournament with over 3,000 in prizes! Register now.">
+    <meta name="keywords" content="NMC, Nepali Gaming Event, esports, tournament, Nepal">
+    <meta name="author" content="NMC">
+    <title>NMC Nepali Gaming Event</title>
+    <link rel="icon" type="image/png" href="favicon.png"> <!-- Replace with your favicon -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --main-bg-color: #050505; /* Almost pure black */
+            --header-bg-color: #080808; /* Slightly lighter for distinction */
+            --card-bg-color: #101010; /* Very dark card background */
+            --border-color-dark: #1a1a1a; /* Dark gray for borders */
+            --border-color-light: #333;
+            --text-light: #ffffff; /* Pure white for main text */
+            --text-dark: #bbbbbb; /* Lighter dark text for contrast */
+            --accent-gold: #ffb800; /* Main accent color */
+            --accent-gold-rgb: 255, 184, 0; /* RGB for rgba() uses */
+            --accent-red-glow: #ff4500; /* Reddish glow */
+            --accent-red-glow-rgb: 255, 69, 0;
+            --accent-purple: #8854c4; /* For potential future use */
+            --hover-dark: #181818; /* Even darker hover */
+            --focus-glow: 0 0 40px rgba(var(--accent-gold-rgb), 1); /* Intense focus glow */
+            --error-color: #ff5555; /* Error feedback */
+            --success-color: #00dd00; /* Success feedback */
+        }
 
-/* Navbar */
-nav {
-  position: fixed; top:0; width:100%; display:flex; justify-content:space-between; align-items:center;
-  padding:20px 50px; background:rgba(0,0,0,0.85); backdrop-filter:blur(10px); z-index:1000;
-}
-nav h2 {
-  background: linear-gradient(90deg,#ff0000,#ffd700);
-  -webkit-background-clip:text; -webkit-text-fill-color:transparent;
-}
-nav ul {display:flex; list-style:none;}
-nav ul li {margin-left:30px;}
-nav ul li a {position:relative; font-weight:600; transition:.3s; color:white;}
-nav ul li a::after {content:""; position:absolute; width:0%; height:2px; bottom:-5px; left:0; background:#ffd700; transition:.3s;}
-nav ul li a:hover::after {width:100%;}
+        @keyframes dropParticles {
+            0% { transform: translateY(-100vh); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(100vh); opacity: 0; }
+        }
 
-/* Hero Section */
-#hero {
-  position:relative; height:100vh; display:flex; justify-content:center; align-items:center; text-align:center; overflow:hidden;
-}
-.hero-overlay {position:absolute; top:0; left:0; right:0; bottom:0; background:linear-gradient(180deg, rgba(0,0,0,0.85), rgba(0,0,0,0.7)); z-index:1;}
-.hero-content {position:relative; z-index:2; max-width:900px; padding:20px;}
-.hero-title {font-size:4rem; font-weight:800; background:linear-gradient(90deg,#ff0000,#ffd700); -webkit-background-clip:text; -webkit-text-fill-color:transparent; margin-bottom:15px; animation:slideDown 1.5s ease;}
-.hero-subtitle {font-size:2rem; color:#ffd700; margin-bottom:15px; animation:slideUp 1.5s ease;}
-.hero-prize {font-size:1.5rem; margin-bottom:25px;}
-.hero-prize span {color:#ff0000; font-weight:bold;}
-.hero-btn {display:inline-block; padding:15px 45px; background:linear-gradient(45deg,#ff0000,#ffd700); color:black; font-weight:bold; border-radius:50px; font-size:1.3rem; transition:.3s; box-shadow:0 0 15px rgba(255,0,0,0.6);}
-.hero-btn:hover {transform:scale(1.05); box-shadow:0 0 25px rgba(255,215,0,0.9);}
+        #particle-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 0;
+            pointer-events: none;
+            perspective: 1000px;
+        }
 
-/* Animations */
-@keyframes slideDown {from{opacity:0; transform:translateY(-50px);} to{opacity:1; transform:translateY(0);}}
-@keyframes slideUp {from{opacity:0; transform:translateY(50px);} to{opacity:1; transform:translateY(0);}}
+        .particle {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background-repeat: repeat;
+            animation: dropParticles linear infinite;
+        }
 
-/* Particles */
-#particles-js {position:absolute; width:100%; height:100%; z-index:1;}
+        .particle1 {
+            background-image: radial-gradient(circle at 15% 10%, rgba(var(--accent-red-glow-rgb), 0.1) 1px, transparent 3px),
+                            radial-gradient(circle at 85% 90%, rgba(var(--accent-gold-rgb), 0.08) 1px, transparent 3px);
+            background-size: 500px 500px, 450px 450px;
+            animation-duration: 80s;
+            opacity: 0.6;
+            filter: blur(1px) drop-shadow(0 0 10px rgba(var(--accent-red-glow-rgb), 0.5));
+            animation-delay: -10s;
+        }
 
-/* Register Section */
-#register {
-  padding:100px 20px;
-  background:#111;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-}
-.register-container {
-  width:100%;
-  max-width:600px;
-  background:#1a1a1a;
-  padding:50px;
-  border-radius:15px;
-  border:2px solid #ff0000;
-  box-shadow:0 0 40px rgba(255,0,0,0.4);
-  animation:fadeIn 2s ease;
-}
-.register-container h2 {font-size:2.5rem; margin-bottom:10px; background:linear-gradient(90deg,#ff0000,#ffd700); -webkit-background-clip:text; -webkit-text-fill-color:transparent;}
-.register-container p {font-size:1.2rem; color:#ffd700; margin-bottom:30px; text-align:center;}
-.register-form {display:flex; flex-direction:column; gap:20px;}
-.register-form label {font-weight:bold; color:#ffd700;}
-.register-form input {
-  padding:15px;
-  border-radius:8px;
-  border:none;
-  outline:none;
-  font-size:1rem;
-  background:#0a0a0a;
-  color:white;
-  border:2px solid #333;
-  transition:.3s;
-}
-.register-form input:focus {border-color:#ff0000; box-shadow:0 0 10px rgba(255,0,0,0.7);}
-.form-btn {padding:15px; background:linear-gradient(45deg,#ff0000,#ffd700); border:none; border-radius:50px; font-weight:bold; font-size:1.2rem; cursor:pointer; color:black; transition:.3s; box-shadow:0 0 15px rgba(255,0,0,0.6);}
-.form-btn:hover {transform:scale(1.05); box-shadow:0 0 25px rgba(255,215,0,0.9);}
+        .particle2 {
+            background-image: radial-gradient(circle at 25% 70%, rgba(var(--accent-gold-rgb), 0.15) 1px, transparent 2.5px),
+                            radial-gradient(circle at 70% 30%, rgba(var(--accent-red-glow-rgb), 0.12) 1px, transparent 2.5px);
+            background-size: 350px 350px, 400px 400px;
+            animation-duration: 65s;
+            animation-delay: -25s;
+            opacity: 0.75;
+            filter: blur(0.8px) drop-shadow(0 0 15px rgba(var(--accent-gold-rgb), 0.6));
+        }
 
-/* FadeIn Animation */
-@keyframes fadeIn {from{opacity:0;} to{opacity:1;}}
-</style>
+        .particle3 {
+            background-image: radial-gradient(circle at 40% 20%, rgba(var(--accent-red-glow-rgb), 0.2) 1px, transparent 2px),
+                            radial-gradient(circle at 60% 80%, rgba(var(--accent-gold-rgb), 0.18) 1px, transparent 2px);
+            background-size: 250px 250px, 300px 300px;
+            animation-duration: 50s;
+            animation-delay: -40s;
+            opacity: 0.85;
+            filter: blur(0.5px) drop-shadow(0 0 20px rgba(var(--accent-red-glow-rgb), 0.7));
+        }
+
+        .particle4 {
+            background-image: radial-gradient(circle at 5% 5%, rgba(var(--accent-gold-rgb), 0.25) 1px, transparent 1.5px),
+                            radial-gradient(circle at 95% 95%, rgba(var(--accent-red-glow-rgb), 0.25) 1px, transparent 1.5px);
+            background-size: 150px 150px, 200px 200px;
+            animation-duration: 40s;
+            animation-delay: -55s;
+            opacity: 1;
+            filter: blur(0.2px) drop-shadow(0 0 25px rgba(var(--accent-gold-rgb), 0.8));
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            background-color: var(--main-bg-color);
+            background-image: radial-gradient(circle at 10% 90%, rgba(var(--accent-red-glow-rgb), 0.1) 0%, transparent 40%),
+                             radial-gradient(circle at 90% 10%, rgba(var(--accent-gold-rgb), 0.08) 0%, transparent 50%),
+                             linear-gradient(to bottom, #0d0000, #000000);
+            background-size: cover;
+            color: var(--text-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+            min-height: 100vh;
+            scroll-behavior: smooth;
+        }
+
+        .page-wrapper {
+            position: relative;
+            z-index: 1;
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 40px;
+            background-color: var(--header-bg-color);
+            border-bottom: 1px solid var(--border-color-dark);
+            box-shadow: 0 4px 40px rgba(0, 0, 0, 1);
+            z-index: 1000;
+        }
+
+        .navbar .logo {
+            font-size: 2em;
+            font-weight: 700;
+            color: var(--accent-gold);
+            text-shadow: 0 0 25px rgba(var(--accent-gold-rgb), 1), 0 0 15px rgba(var(--accent-red-glow-rgb), 0.7);
+            letter-spacing: 1.5px;
+        }
+
+        .navbar .nav-links {
+            display: flex;
+            gap: 25px;
+        }
+
+        .navbar .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95em;
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            text-shadow: 0 0 15px rgba(0, 0, 0, 1);
+        }
+
+        .navbar .nav-links a:hover {
+            background-color: var(--hover-dark);
+            color: var(--accent-gold);
+            transform: translateY(-8px);
+            box-shadow: 0 0 60px rgba(var(--accent-gold-rgb), 1), 0 20px 50px rgba(0, 0, 0, 1);
+            border: 1px solid var(--accent-gold);
+            text-shadow: 0 0 40px rgba(var(--accent-gold-rgb), 1);
+        }
+
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            animation: fadeIn 1.8s ease-out;
+        }
+
+        .hero h1 {
+            font-size: 3.5em;
+            font-weight: 700;
+            color: #000000;
+            -webkit-text-stroke: 2px var(--accent-gold);
+            text-shadow: 0 0 70px rgba(var(--accent-gold-rgb), 1), 0 0 50px rgba(var(--accent-red-glow-rgb), 1);
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+        }
+
+        .hero h2 {
+            font-size: 2.5em;
+            font-weight: 600;
+            color: var(--accent-gold);
+            text-shadow: 0 0 30px rgba(var(--accent-gold-rgb), 1);
+            margin: 15px 0;
+            animation: slideUp 1.5s ease-out 0.2s;
+            animation-fill-mode: backwards;
+        }
+
+        .hero p {
+            font-size: 1.6em;
+            color: var(--text-light);
+            text-shadow: 0 0 20px rgba(var(--accent-gold-rgb), 0.7);
+            margin-bottom: 40px;
+            animation: slideUp 1.5s ease-out 0.4s;
+            animation-fill-mode: backwards;
+        }
+
+        .hero .cta-button {
+            padding: 12px 20px;
+            font-size: 1.1em;
+            font-weight: 600;
+            background-color: var(--header-bg-color);
+            color: var(--text-light);
+            border: 1px solid var(--border-color-light);
+            border-radius: 6px;
+            text-decoration: none;
+            text-shadow: 0 0 18px rgba(0, 0, 0, 1);
+            transition: all 0.2s ease;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 1);
+        }
+
+        .hero .cta-button:hover {
+            background-color: var(--hover-dark);
+            color: var(--accent-gold);
+            transform: translateY(-6px);
+            box-shadow: 0 0 50px rgba(var(--accent-gold-rgb), 1), 0 18px 40px rgba(0, 0, 0, 1);
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .register {
+            padding: 100px 5%;
+            display: flex;
+            justify-content: center;
+            animation: fadeIn 1.8s ease-out;
+        }
+
+        .register-card {
+            background-color: var(--card-bg-color);
+            border: 1px solid var(--border-color-dark);
+            border-radius: 8px;
+            padding: 40px;
+            max-width: 600px;
+            width: 100%;
+            box-shadow: 0 8px 50px rgba(0, 0, 0, 1);
+            transition: transform 0.3s ease;
+        }
+
+        .register-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 70px rgba(0, 0, 0, 1);
+        }
+
+        .register-card h2 {
+            font-size: 2.5em;
+            font-weight: 700;
+            color: var(--text-light);
+            text-shadow: 0 0 30px rgba(var(--accent-gold-rgb), 1);
+            margin-bottom: 30px;
+            text-align: center;
+            letter-spacing: 1px;
+        }
+
+        .register-card .form-group {
+            margin-bottom: 25px;
+        }
+
+        .register-card label {
+            display: block;
+            font-size: 1.1em;
+            font-weight: 600;
+            color: var(--text-light);
+            margin-bottom: 10px;
+            text-shadow: 0 0 12px rgba(0, 0, 0, 1);
+        }
+
+        .register-card input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid var(--border-color-dark);
+            border-radius: 6px;
+            background-color: var(--header-bg-color);
+            color: var(--text-light);
+            font-size: 1em;
+            outline: none;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .register-card input:focus {
+            border-color: var(--accent-gold);
+            box-shadow: var(--focus-glow);
+        }
+
+        .register-card input:invalid:focus {
+            border-color: var(--error-color);
+            box-shadow: 0 0 12px rgba(var(--error-color-rgb, 255, 85, 85), 0.5);
+        }
+
+        .register-card button {
+            width: 100%;
+            padding: 12px 20px;
+            font-size: 1.1em;
+            font-weight: 600;
+            background-color: var(--header-bg-color);
+            color: var(--text-light);
+            border: 1px solid var(--border-color-light);
+            border-radius: 6px;
+            text-shadow: 0 0 18px rgba(0, 0, 0, 1);
+            transition: all 0.2s ease;
+            cursor: pointer;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 1);
+        }
+
+        .register-card button:hover {
+            background-color: var(--hover-dark);
+            color: var(--accent-gold);
+            transform: translateY(-6px);
+            box-shadow: 0 0 50px rgba(var(--accent-gold-rgb), 1), 0 18px 40px rgba(0, 0, 0, 1);
+        }
+
+        .register-card button:disabled {
+            background-color: var(--border-color-light);
+            color: var(--text-dark);
+            cursor: not-allowed;
+            box-shadow: none;
+        }
+
+        .form-message {
+            margin-top: 20px;
+            padding: 10px;
+            border-radius: 6px;
+            text-align: center;
+            font-size: 1em;
+            display: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .form-message.success {
+            background-color: rgba(var(--success-color-rgb, 0, 221, 0), 0.2);
+            color: var(--success-color);
+            display: block;
+        }
+
+        .form-message.error {
+            background-color: rgba(var(--error-color-rgb, 255, 85, 85), 0.2);
+            color: var(--error-color);
+            display: block;
+        }
+
+        .footer {
+            padding: 30px;
+            text-align: center;
+            background-color: var(--header-bg-color);
+            border-top: 1px solid var(--border-color-dark);
+            color: var(--text-dark);
+            font-size: 1em;
+            box-shadow: 0 -4px 40px rgba(0, 0, 0, 1);
+        }
+
+        .footer a {
+            color: var(--accent-gold);
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: 600;
+            transition: all 0.2s ease;
+            text-shadow: 0 0 15px rgba(0, 0, 0, 1);
+        }
+
+        .footer a:hover {
+            color: var(--accent-red-glow);
+            transform: translateY(-4px);
+            text-shadow: 0 0 25px rgba(var(--accent-red-glow-rgb), 1);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.8em; -webkit-text-stroke: 1.5px var(--accent-gold); }
+            .hero h2 { font-size: 2em; }
+            .hero p { font-size: 1.3em; }
+            .hero .cta-button { padding: 10px 18px; font-size: 1em; }
+            .navbar { padding: 10px 20px; }
+            .navbar .logo { font-size: 1.6em; }
+            .navbar .nav-links { gap: 15px; }
+            .navbar .nav-links a { font-size: 0.9em; padding: 8px 12px; }
+            .register { padding: 60px 5%; }
+            .register-card { padding: 30px; }
+            .register-card h2 { font-size: 2em; }
+            .register-card input { padding: 10px 12px; font-size: 0.9em; }
+            .register-card button { padding: 10px 12px; font-size: 1em; }
+            .form-message { font-size: 0.9em; }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 { font-size: 2.2em; -webkit-text-stroke: 1px var(--accent-gold); }
+            .hero h2 { font-size: 1.5em; }
+            .hero p { font-size: 1.1em; }
+            .navbar { padding: 8px 15px; }
+            .navbar .logo { font-size: 1.4em; }
+            .navbar .nav-links { flex-direction: column; gap: 10px; align-items: center; }
+            .register-card { padding: 20px; }
+            .register-card h2 { font-size: 1.6em; }
+        }
+    </style>
 </head>
 <body>
+    <div id="particle-container">
+        <div class="particle particle1"></div>
+        <div class="particle particle2"></div>
+        <div class="particle particle3"></div>
+        <div class="particle particle4"></div>
+    </div>
 
-<!-- Navbar -->
-<nav>
-  <h2>NMC Event</h2>
-  <ul>
-    <li><a href="#hero">Home</a></li>
-    <li><a href="#register">Register</a></li>
-    <li><a href="#rules">Rules</a></li>
-  </ul>
-</nav>
+    <div class="page-wrapper">
+        <nav class="navbar">
+            <div class="logo">NMC</div>
+            <div class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#register">Register</a>
+            </div>
+        </nav>
 
-<!-- Hero Section -->
-<section id="hero">
-  <div class="hero-overlay"></div>
-  <div class="hero-content">
-    <h1 class="hero-title">🇳🇵 NMC Presents</h1>
-    <h2 class="hero-subtitle">The Biggest Nepali Event</h2>
-    <p class="hero-prize">💰 Prize Pool: <span>Rs. 5,000</span></p>
-    <a href="#register" class="hero-btn">Register Now</a>
-  </div>
-  <div id="particles-js"></div>
-</section>
+        <section id="home" class="hero">
+            <h1>🇳🇵 NMC Presents</h1>
+            <h2>Nepal's Premier Gaming Event</h2>
+            <p>Compete for Over 3,000 in Prizes!</p>
+            <a href="#register" class="cta-button">Register Now</a>
+        </section>
 
-<!-- Register Section -->
-<section id="register">
-  <div class="register-container">
-    <h2>📌 Register Now</h2>
-    <p>Fill in your details to join the event!</p>
-    <form class="register-form" id="registerForm">
-      <label>Name</label>
-      <input type="text" name="name" placeholder="Enter your full name" required>
-      <label>Age</label>
-      <input type="number" name="age" placeholder="Enter your age" required>
-      <label>Email</label>
-      <input type="email" name="email" placeholder="Enter your email" required>
-      <label>Discord</label>
-      <input type="text" name="discord" placeholder="Enter your Discord tag (e.g. Name#1234)" required>
-      <button type="submit" class="form-btn">Submit</button>
-    </form>
-  </div>
-</section>
+        <section id="register" class="register">
+            <div class="register-card">
+                <h2>Join the Tournament</h2>
+                <form id="register-form">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="age">Age</label>
+                        <input type="number" id="age" name="age" min="1" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="discord">Discord ID (e.g., username#1234)</label>
+                        <input type="text" id="discord" name="discord" pattern=".{3,32}#[0-9]{4}" title="Enter your Discord ID in the format username#1234" required>
+                    </div>
+                    <button type="submit" id="submit-button">Submit Registration</button>
+                    <div id="form-message" class="form-message"></div>
+                </form>
+            </div>
+        </section>
 
-<script>
-// Particles
-particlesJS("particles-js", {
-  "particles": {
-    "number": {"value":150},
-    "size":{"value":1.2},
-    "color":{"value":"#FFD700"},
-    "move":{"direction":"bottom","speed":2,"straight":true},
-    "opacity":{"value":0.9},
-    "line_linked":{"enable":false}
-  }
-});
+        <footer class="footer">
+            <p>&copy; 2025 NMC. All rights reserved.</p>
+            <p>
+                <a href="https://discord.gg/your-discord" target="_blank">Discord</a>
+            </p>
+        </footer>
+    </div>
 
-// Discord Webhook
-document.getElementById('registerForm').addEventListener('submit', async function(e){
-  e.preventDefault();
-  const webhookURL = "YOUR_DISCORD_WEBHOOK_URL"; // Replace with your webhook
-  const name = this.name.value;
-  const age = this.age.value;
-  const email = this.email.value;
-  const discord = this.discord.value;
+    <script>
+        const webhookUrl = 'https://discord.com/api/webhooks/1410313114809008158/FUvA8bxgD8Q8ASDWBWveeGabGgHIowHGfcXlkTpPdmeYgXzZDnBKzHnkGHWUf7NB0xTz';
 
-  const data = {
-    content: `📌 New Registration:\n**Name:** ${name}\n**Age:** ${age}\n**Email:** ${email}\n**Discord:** ${discord}`
-  };
+        const form = document.getElementById('register-form');
+        const submitButton = document.getElementById('submit-button');
+        const formMessage = document.getElementById('form-message');
 
-  try {
-    await fetch(webhookURL, {
-      method: 'POST',
-      headers: {'Content-Type':'application/json'},
-      body: JSON.stringify(data)
-    });
-    alert("Registration submitted successfully!");
-    this.reset();
-  } catch (err) {
-    alert("Failed to submit. Please try again later.");
-  }
-});
-</script>
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            submitButton.disabled = true;
+            submitButton.textContent = 'Submitting...';
+            formMessage.style.display = 'none';
+            formMessage.classList.remove('success', 'error');
+
+            const formData = new FormData(form);
+            const data = {
+                name: formData.get('name'),
+                age: formData.get('age'),
+                email: formData.get('email'),
+                discord: formData.get('discord'),
+                submissionId: Date.now().toString() + Math.random().toString(36).substring(2, 15),
+            };
+
+            // Validate Discord ID format
+            const discordRegex = /^.{3,32}#[0-9]{4}$/;
+            if (!discordRegex.test(data.discord)) {
+                formMessage.textContent = 'Please enter a valid Discord ID (e.g., username#1234).';
+                formMessage.classList.add('error');
+                formMessage.style.display = 'block';
+                submitButton.disabled = false;
+                submitButton.textContent = 'Submit Registration';
+                return;
+            }
+
+            try {
+                const webhookResponse = await fetch(webhookUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        embeds: [{
+                            title: 'New Registration',
+                            description: 'A new user has registered for the NMC Nepali Gaming Event. Please review and react with ✅ to approve or ❌ to reject.',
+                            color: 0xFFB800, // Gold color
+                            fields: [
+                                { name: 'ID', value: data.submissionId, inline: true },
+                                { name: 'Name', value: data.name, inline: true },
+                                { name: 'Age', value: data.age, inline: true },
+                                { name: 'Email', value: data.email, inline: true },
+                                { name: 'Discord ID', value: data.discord, inline: true },
+                            ],
+                            timestamp: new Date(),
+                            footer: { text: 'NMC', icon_url: 'https://your-logo-url.com/logo.png' }, // Replace with your logo URL
+                            thumbnail: { url: 'https://your-logo-url.com/thumbnail.png' }, // Replace with your thumbnail URL
+                        }],
+                    }),
+                });
+
+                if (!webhookResponse.ok) throw new Error('Webhook request failed');
+
+                formMessage.textContent = 'Registration submitted successfully! Awaiting admin approval.';
+                formMessage.classList.add('success');
+                formMessage.style.display = 'block';
+                form.reset();
+            } catch (error) {
+                console.error('Error submitting form:', error);
+                formMessage.textContent = 'Error submitting registration. Please try again.';
+                formMessage.classList.add('error');
+                formMessage.style.display = 'block';
+            } finally {
+                submitButton.disabled = false;
+                submitButton.textContent = 'Submit Registration';
+            }
+        });
+    </script>
 </body>
 </html>
