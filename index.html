@@ -1,3 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NMC Nepali Event</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+<style>
+/* Reset */
+* {margin:0; padding:0; box-sizing:border-box; font-family:'Poppins', sans-serif;}
+body {background:#0a0a0a; color:white;}
+
+/* Navbar */
+nav {
+  position: fixed; top:0; width:100%; display:flex; justify-content:space-between; align-items:center;
+  padding:20px 50px; background:rgba(0,0,0,0.85); backdrop-filter:blur(10px); z-index:1000;
+}
+nav h2 {
+  background: linear-gradient(90deg,#ff0000,#ffd700);
+  -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+}
+nav ul {display:flex; list-style:none;}
+nav ul li {margin-left:30px;}
+nav ul li a {position:relative; font-weight:600; transition:.3s; color:white;}
+nav ul li a::after {content:""; position:absolute; width:0%; height:2px; bottom:-5px; left:0; background:#ffd700; transition:.3s;}
+nav ul li a:hover::after {width:100%;}
+
+/* Hero Section */
+#hero {
+  position:relative; height:100vh; display:flex; justify-content:center; align-items:center; text-align:center; overflow:hidden;
+}
+.hero-overlay {position:absolute; top:0; left:0; right:0; bottom:0; background:linear-gradient(180deg, rgba(0,0,0,0.85), rgba(0,0,0,0.7)); z-index:1;}
+.hero-content {position:relative; z-index:2; max-width:900px; padding:20px;}
+.hero-title {font-size:4rem; font-weight:800; background:linear-gradient(90deg,#ff0000,#ffd700); -webkit-background-clip:text; -webkit-text-fill-color:transparent; margin-bottom:15px; animation:slideDown 1.5s ease;}
+.hero-subtitle {font-size:2rem; color:#ffd700; margin-bottom:15px; animation:slideUp 1.5s ease;}
+.hero-prize {font-size:1.5rem; margin-bottom:25px;}
+.hero-prize span {color:#ff0000; font-weight:bold;}
+.hero-btn {display:inline-block; padding:15px 45px; background:linear-gradient(45deg,#ff0000,#ffd700); color:black; font-weight:bold; border-radius:50px; font-size:1.3rem; transition:.3s; box-shadow:0 0 15px rgba(255,0,0,0.6);}
+.hero-btn:hover {transform:scale(1.05); box-shadow:0 0 25px rgba(255,215,0,0.9);}
+
+/* Animations */
+@keyframes slideDown {from{opacity:0; transform:translateY(-50px);} to{opacity:1; transform:translateY(0);}}
+@keyframes slideUp {from{opacity:0; transform:translateY(50px);} to{opacity:1; transform:translateY(0);}}
+
+/* Particles */
+#particles-js {position:absolute; width:100%; height:100%; z-index:1;}
+
+/* Register Section */
+#register {
+  padding:100px 20px;
+  background:#111;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+.register-container {
+  width:100%;
+  max-width:600px;
+  background:#1a1a1a;
+  padding:50px;
+  border-radius:15px;
+  border:2px solid #ff0000;
+  box-shadow:0 0 40px rgba(255,0,0,0.4);
+  animation:fadeIn 2s ease;
+}
+.register-container h2 {font-size:2.5rem; margin-bottom:10px; background:linear-gradient(90deg,#ff0000,#ffd700); -webkit-background-clip:text; -webkit-text-fill-color:transparent;}
+.register-container p {font-size:1.2rem; color:#ffd700; margin-bottom:30px; text-align:center;}
+.register-form {display:flex; flex-direction:column; gap:20px;}
+.register-form label {font-weight:bold; color:#ffd700;}
+.register-form input {
+  padding:15px;
+  border-radius:8px;
+  border:none;
+  outline:none;
+  font-size:1rem;
+  background:#0a0a0a;
+  color:white;
+  border:2px solid #333;
+  transition:.3s;
+}
+.register-form input:focus {border-color:#ff0000; box-shadow:0 0 10px rgba(255,0,0,0.7);}
+.form-btn {padding:15px; background:linear-gradient(45deg,#ff0000,#ffd700); border:none; border-radius:50px; font-weight:bold; font-size:1.2rem; cursor:pointer; color:black; transition:.3s; box-shadow:0 0 15px rgba(255,0,0,0.6);}
+.form-btn:hover {transform:scale(1.05); box-shadow:0 0 25px rgba(255,215,0,0.9);}
+
+/* FadeIn Animation */
+@keyframes fadeIn {from{opacity:0;} to{opacity:1;}}
+</style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav>
+  <h2>NMC Event</h2>
+  <ul>
+    <li><a href="#hero">Home</a></li>
+    <li><a href="#register">Register</a></li>
+    <li><a href="#rules">Rules</a></li>
+  </ul>
+</nav>
+
 <!-- Hero Section -->
 <section id="hero">
   <div class="hero-overlay"></div>
@@ -13,104 +114,60 @@
 <!-- Register Section -->
 <section id="register">
   <div class="register-container">
-    <h2 class="register-title">📌 Register Now</h2>
-    <p class="register-subtitle">Fill in your details to join the event!</p>
-    <form class="register-form">
+    <h2>📌 Register Now</h2>
+    <p>Fill in your details to join the event!</p>
+    <form class="register-form" id="registerForm">
       <label>Name</label>
-      <input type="text" placeholder="Enter your full name" required>
-
+      <input type="text" name="name" placeholder="Enter your full name" required>
       <label>Age</label>
-      <input type="number" placeholder="Enter your age" required>
-
+      <input type="number" name="age" placeholder="Enter your age" required>
       <label>Email</label>
-      <input type="email" placeholder="Enter your email" required>
-
+      <input type="email" name="email" placeholder="Enter your email" required>
       <label>Discord</label>
-      <input type="text" placeholder="Enter your Discord tag (e.g. Name#1234)" required>
-
+      <input type="text" name="discord" placeholder="Enter your Discord tag (e.g. Name#1234)" required>
       <button type="submit" class="form-btn">Submit</button>
     </form>
   </div>
 </section>
 
-<style>
-/* Register Section */
-#register {
-  background: #111;
-  padding: 80px 20px;
-  text-align: center;
-  color: white;
-}
+<script>
+// Particles
+particlesJS("particles-js", {
+  "particles": {
+    "number": {"value":150},
+    "size":{"value":1.2},
+    "color":{"value":"#FFD700"},
+    "move":{"direction":"bottom","speed":2,"straight":true},
+    "opacity":{"value":0.9},
+    "line_linked":{"enable":false}
+  }
+});
 
-.register-container {
-  max-width: 600px;
-  margin: auto;
-  background: #1a1a1a;
-  padding: 40px;
-  border-radius: 15px;
-  box-shadow: 0 0 25px rgba(255, 0, 0, 0.4);
-  border: 2px solid #ff0000;
-  animation: fadeIn 2s ease;
-}
+// Discord Webhook
+document.getElementById('registerForm').addEventListener('submit', async function(e){
+  e.preventDefault();
+  const webhookURL = "YOUR_DISCORD_WEBHOOK_URL"; // Replace with your webhook
+  const name = this.name.value;
+  const age = this.age.value;
+  const email = this.email.value;
+  const discord = this.discord.value;
 
-.register-title {
-  font-size: 2.5rem;
-  margin-bottom: 10px;
-  background: linear-gradient(90deg, #ff0000, #ffd700);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
+  const data = {
+    content: `📌 New Registration:\n**Name:** ${name}\n**Age:** ${age}\n**Email:** ${email}\n**Discord:** ${discord}`
+  };
 
-.register-subtitle {
-  font-size: 1.2rem;
-  color: #ffd700;
-  margin-bottom: 30px;
-}
-
-.register-form {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.register-form label {
-  text-align: left;
-  font-weight: bold;
-  color: #ffd700;
-}
-
-.register-form input {
-  padding: 12px;
-  border-radius: 8px;
-  border: none;
-  outline: none;
-  font-size: 1rem;
-  background: #0a0a0a;
-  color: white;
-  border: 2px solid #333;
-  transition: all 0.3s ease;
-}
-
-.register-form input:focus {
-  border-color: #ff0000;
-  box-shadow: 0 0 10px rgba(255,0,0,0.7);
-}
-
-.form-btn {
-  padding: 15px;
-  background: linear-gradient(45deg, #ff0000, #ffd700);
-  border: none;
-  border-radius: 50px;
-  font-size: 1.2rem;
-  font-weight: bold;
-  color: black;
-  cursor: pointer;
-  transition: 0.3s;
-  box-shadow: 0 0 15px rgba(255,0,0,0.6);
-}
-
-.form-btn:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 20px rgba(255,215,0,0.9);
-}
-</style>
+  try {
+    await fetch(webhookURL, {
+      method: 'POST',
+      headers: {'Content-Type':'application/json'},
+      body: JSON.stringify(data)
+    });
+    alert("Registration submitted successfully!");
+    this.reset();
+  } catch (err) {
+    alert("Failed to submit. Please try again later.");
+  }
+});
+</script>
+</body>
+</html>
