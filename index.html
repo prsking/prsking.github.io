@@ -10,122 +10,107 @@
   <div id="particles-js"></div>
 </section>
 
-<!-- Particles.js -->
-<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-<script>
-particlesJS("particles-js", {
-  "particles": {
-    "number": {"value": 100},
-    "size": {"value": 3},
-    "color": {"value": ["#ff0000", "#ffd700", "#ffffff"]}, // red, gold, white
-    "move": {
-      "direction": "bottom", // fall down
-      "speed": 2,
-      "straight": true
-    },
-    "opacity": {"value": 0.8},
-    "line_linked": {"enable": false}
-  },
-  "interactivity": {
-    "events": {
-      "onhover": {"enable": true, "mode": "repulse"}
-    }
-  }
-});
-</script>
+<!-- Register Section -->
+<section id="register">
+  <div class="register-container">
+    <h2 class="register-title">📌 Register Now</h2>
+    <p class="register-subtitle">Fill in your details to join the event!</p>
+    <form class="register-form">
+      <label>Name</label>
+      <input type="text" placeholder="Enter your full name" required>
+
+      <label>Age</label>
+      <input type="number" placeholder="Enter your age" required>
+
+      <label>Email</label>
+      <input type="email" placeholder="Enter your email" required>
+
+      <label>Discord</label>
+      <input type="text" placeholder="Enter your Discord tag (e.g. Name#1234)" required>
+
+      <button type="submit" class="form-btn">Submit</button>
+    </form>
+  </div>
+</section>
 
 <style>
-/* Hero Section */
-#hero {
-  position: relative;
-  height: 100vh;
-  background: #000; /* solid black */
-  display: flex;
-  justify-content: center;
-  align-items: center;
+/* Register Section */
+#register {
+  background: #111;
+  padding: 80px 20px;
   text-align: center;
   color: white;
-  overflow: hidden;
-  font-family: 'Poppins', sans-serif;
 }
 
-.hero-overlay {
-  position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background: linear-gradient(180deg, rgba(0,0,0,0.9), rgba(0,0,0,0.6));
+.register-container {
+  max-width: 600px;
+  margin: auto;
+  background: #1a1a1a;
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: 0 0 25px rgba(255, 0, 0, 0.4);
+  border: 2px solid #ff0000;
+  animation: fadeIn 2s ease;
 }
 
-.hero-content {
-  position: relative;
-  z-index: 2;
-  max-width: 900px;
-  padding: 20px;
-  animation: fadeIn 2s ease forwards;
-}
-
-.hero-title {
-  font-size: 4rem;
-  font-weight: 800;
+.register-title {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
   background: linear-gradient(90deg, #ff0000, #ffd700);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  margin-bottom: 15px;
-  animation: slideDown 1.5s ease;
 }
 
-.hero-subtitle {
-  font-size: 2rem;
-  color: #ffcc00;
-  margin-bottom: 15px;
-  animation: slideUp 1.5s ease;
+.register-subtitle {
+  font-size: 1.2rem;
+  color: #ffd700;
+  margin-bottom: 30px;
 }
 
-.hero-prize span {
-  color: #ff0000;
+.register-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.register-form label {
+  text-align: left;
   font-weight: bold;
-  font-size: 1.5rem;
+  color: #ffd700;
 }
 
-.hero-btn {
-  display: inline-block;
-  padding: 15px 35px;
-  background: linear-gradient(45deg, #ff0000, #ffd700);
-  color: black;
-  font-size: 1.3rem;
-  font-weight: bold;
-  border-radius: 50px;
-  margin-top: 25px;
-  text-decoration: none;
+.register-form input {
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  background: #0a0a0a;
+  color: white;
+  border: 2px solid #333;
   transition: all 0.3s ease;
-  box-shadow: 0 0 15px rgba(255, 0, 0, 0.6);
 }
 
-.hero-btn:hover {
-  transform: scale(1.08);
-  box-shadow: 0 0 25px rgba(255, 215, 0, 0.8);
+.register-form input:focus {
+  border-color: #ff0000;
+  box-shadow: 0 0 10px rgba(255,0,0,0.7);
 }
 
-/* Animations */
-@keyframes fadeIn {
-  from {opacity: 0;}
-  to {opacity: 1;}
+.form-btn {
+  padding: 15px;
+  background: linear-gradient(45deg, #ff0000, #ffd700);
+  border: none;
+  border-radius: 50px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: black;
+  cursor: pointer;
+  transition: 0.3s;
+  box-shadow: 0 0 15px rgba(255,0,0,0.6);
 }
 
-@keyframes slideDown {
-  from {opacity: 0; transform: translateY(-50px);}
-  to {opacity: 1; transform: translateY(0);}
-}
-
-@keyframes slideUp {
-  from {opacity: 0; transform: translateY(50px);}
-  to {opacity: 1; transform: translateY(0);}
-}
-
-/* Particles container */
-#particles-js {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
+.form-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(255,215,0,0.9);
 }
 </style>
