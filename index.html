@@ -18,12 +18,13 @@
     --border-color-light: #333;
     --text-white: #ffffff;
     --text-placeholder: #cccccc;
+    --text-dark: #bbbbbb;
     --accent-gold: #ffb800;
     --accent-gold-rgb: 255, 184, 0;
     --accent-red-glow: #ff4500;
     --accent-red-glow-rgb: 255, 69, 0;
     --hover-dark: #181818;
-    --focus-glow: 0 0 10px rgba(var(--accent-gold-rgb), 0.7);
+    --focus-glow: 0 0 40px rgba(var(--accent-gold-rgb), 1);
     --error-color: #ff4d4d;
     --success-color: #00ff00;
     --button-glow: 0 0 10px rgba(var(--accent-gold-rgb), 0.6);
@@ -102,85 +103,66 @@ body {
     position: relative;
     z-index: 1;
 }
-.navbar {
-    position: fixed;
-    top: 0;
-    width: 100%;
+.top-header {
+    background-color: var(--header-bg-color);
+    border-bottom: 1px solid var(--border-color-dark);
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 10px 40px;
-    background-color: var(--header-bg-color);
-    border-bottom: 1px solid var(--border-color-dark);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
-    z-index: 1000;
+    box-shadow: 0 4px 40px rgba(0, 0, 0, 1);
 }
-.navbar .logo {
+.top-header .logo {
     font-size: 2em;
     font-weight: 700;
     color: var(--text-white);
     text-shadow: 0 0 10px rgba(var(--accent-gold-rgb), 0.6);
     letter-spacing: 1px;
 }
-.navbar .logo img {
-    height: 40px;
-    vertical-align: middle;
+.main-nav-bar {
+    background-color: var(--header-bg-color);
+    border-bottom: 1px solid var(--border-color-dark);
+    padding: 10px 0;
+    box-shadow: 0 2px 30px rgba(0, 0, 0, 1);
 }
-.navbar .server-ip {
-    font-size: 1em;
-    font-weight: 500;
-    color: var(--text-placeholder);
-}
-.navbar .server-ip span {
-    color: var(--accent-gold);
-}
-.navbar .nav-links {
+.main-nav-bar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
     display: flex;
-    gap: 20px;
-    margin: 0 auto;
-    flex-grow: 1;
     justify-content: center;
-    max-width: fit-content;
+    gap: 30px;
 }
-.navbar .nav-links a {
-    display: flex;
-    align-items: center;
-    gap: 8px;
+.main-nav-bar ul li a {
     color: var(--text-white);
     text-decoration: none;
     font-weight: 600;
-    font-size: 1em;
-    padding: 8px 12px;
+    padding: 10px 15px;
     border-radius: 5px;
     transition: all 0.3s ease;
-    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-shadow: 0 0 15px rgba(0,0,0,1);
+    font-size: 0.95em;
 }
-.navbar .nav-links a img {
+.main-nav-bar ul li a img {
     height: 20px;
-    vertical-align: middle;
+    filter: brightness(0.6) drop-shadow(0 0 10px rgba(0,0,0,1));
+    transition: filter 0.3s ease;
 }
-.navbar .nav-links a.active {
-    color: var(--accent-gold);
+.main-nav-bar ul li a:hover,
+.main-nav-bar ul li a.active {
     background-color: var(--hover-dark);
-}
-.navbar .nav-links a::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 2px;
-    background: var(--accent-gold);
-    left: 50%;
-    bottom: 5px;
-    transform: translateX(-50%);
-    transition: width 0.3s ease;
-}
-.navbar .nav-links a:hover::after {
-    width: calc(100% - 20px);
-}
-.navbar .nav-links a:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 0 60px rgba(var(--accent-gold-rgb), 1), 0 20px 50px rgba(0,0,0,1);
     color: var(--accent-gold);
-    background-color: var(--hover-dark);
-    transform: translateY(-2px);
+    border: 1px solid var(--accent-gold);
+    text-shadow: 0 0 40px rgba(var(--accent-gold-rgb), 1);
+}
+.main-nav-bar ul li a:hover img,
+.main-nav-bar ul li a.active img {
+    filter: brightness(1) drop-shadow(0 0 30px rgba(var(--accent-gold-rgb), 1));
 }
 .hero {
     height: 100vh;
@@ -431,22 +413,20 @@ body {
     }
 }
 @media (max-width: 768px) {
-    .navbar {
+    .top-header {
         flex-direction: column;
         padding: 12px 20px;
         gap: 10px;
     }
-    .navbar .logo {
+    .top-header .logo {
         margin: 0;
         font-size: 1.8em;
     }
-    .navbar .nav-links {
-        flex-grow: 0;
-        width: 100%;
-        justify-content: center;
+    .main-nav-bar ul {
+        flex-wrap: wrap;
         gap: 15px;
     }
-    .navbar .nav-links a {
+    .main-nav-bar ul li a {
         font-size: 0.9em;
         padding: 6px 10px;
     }
@@ -498,8 +478,7 @@ body {
     }
 }
 @media (max-width: 480px) {
-    .navbar .nav-links {
-        flex-wrap: wrap;
+    .main-nav-bar ul {
         gap: 10px;
     }
     .hero h1 {
@@ -542,17 +521,14 @@ body {
     </div>
 
     <div class="page-wrapper">
-        <nav class="navbar">
-            <div class="logo">
-                <img src="https://i.imgur.com/example_logo.png" alt="NmcTiers Logo">
-            </div>
-            <div class="nav-links">
-                <a href="index.html"><img src="https://pvptiers.com/icons/tiers/overall.png" alt="Home Icon">HOME</a>
-                <a href="community.html" class="active"><img src="https://pvptiers.com/icons/tiers/smp.png" alt="Community Icon">COMMUNITY</a>
-            </div>
-            <div class="server-ip">
-                SERVER IP: <span>Soon</span>
-            </div>
+        <div class="top-header">
+            <div class="logo">NMC</div>
+        </div>
+        <nav class="main-nav-bar">
+            <ul>
+                <li><a href="index.html"><img src="https://pvptiers.com/icons/tiers/overall.png" alt="Home Icon">HOME</a></li>
+                <li><a href="community.html"><img src="https://pvptiers.com/icons/tiers/smp.png" alt="Community Icon">COMMUNITY</a></li>
+            </ul>
         </nav>
     <section id="home" class="hero">
         <h1>🇳🇵 Nepali Minecraft Community Presents</h1>
@@ -593,6 +569,19 @@ body {
     </footer>
 </div>
 <script>
+    // Dynamically set active class for navigation
+    document.addEventListener('DOMContentLoaded', () => {
+        const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+        const navLinks = document.querySelectorAll('.main-nav-bar ul li a');
+        navLinks.forEach(link => {
+            if (link.getAttribute('href') === currentPage) {
+                link.classList.add('active');
+            } else {
+                link.classList.remove('active');
+            }
+        });
+    });
+
     const webhookUrl = 'https://discord.com/api/webhooks/1410313114809008158/FUvA8bxgD8Q8ASDWBWveeGabGgHIowHGfcXlkTpPdmeYgXzZDnBKzHnkGHWUf7NB0xTz';
     const form = document.getElementById('register-form');
     const submitButton = document.getElementById('submit-button');
