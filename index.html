@@ -102,7 +102,6 @@ body {
     position: relative;
     z-index: 1;
 }
-/* Fixed Navigation Bar */
 .navbar {
     position: fixed;
     top: 0;
@@ -123,6 +122,18 @@ body {
     text-shadow: 0 0 10px rgba(var(--accent-gold-rgb), 0.6);
     letter-spacing: 1px;
 }
+.navbar .logo img {
+    height: 40px;
+    vertical-align: middle;
+}
+.navbar .server-ip {
+    font-size: 1em;
+    font-weight: 500;
+    color: var(--text-placeholder);
+}
+.navbar .server-ip span {
+    color: var(--accent-gold);
+}
 .navbar .nav-links {
     display: flex;
     gap: 20px;
@@ -132,6 +143,9 @@ body {
     max-width: fit-content;
 }
 .navbar .nav-links a {
+    display: flex;
+    align-items: center;
+    gap: 8px;
     color: var(--text-white);
     text-decoration: none;
     font-weight: 600;
@@ -140,9 +154,14 @@ body {
     border-radius: 5px;
     transition: all 0.3s ease;
     position: relative;
-    display: flex;
-    align-items: center;
-    gap: 6px;
+}
+.navbar .nav-links a img {
+    height: 20px;
+    vertical-align: middle;
+}
+.navbar .nav-links a.active {
+    color: var(--accent-gold);
+    background-color: var(--hover-dark);
 }
 .navbar .nav-links a::after {
     content: '';
@@ -161,10 +180,356 @@ body {
 .navbar .nav-links a:hover {
     color: var(--accent-gold);
     background-color: var(--hover-dark);
+    transform: translateY(-2px);
+}
+.hero {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    animation: fadeIn 1.5s ease-out;
+    padding-top: 80px;
+    box-sizing: border-box;
+}
+.hero h1 {
+    font-size: 3.8em;
+    font-weight: 700;
+    color: var(--text-white);
+    text-shadow: 0 0 15px rgba(var(--accent-gold-rgb), 0.6);
+    letter-spacing: 1.5px;
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+.hero h2 {
+    font-size: 2.6em;
+    font-weight: 600;
+    color: var(--text-white);
+    text-shadow: 0 0 10px rgba(var(--accent-gold-rgb), 0.5);
+    margin: 15px 0;
+    animation: slideUp 1.5s ease-out 0.2s;
+    animation-fill-mode: backwards;
+}
+.hero p {
+    font-size: 1.6em;
+    font-weight: 500;
+    color: var(--text-white);
+    margin-bottom: 40px;
+    animation: slideUp 1.5s ease-out 0.4s;
+    animation-fill-mode: backwards;
+    max-width: 80%;
+}
+.hero .cta-button {
+    padding: 12px 25px;
+    font-size: 1.1em;
+    font-weight: 600;
+    background-color: var(--header-bg-color);
+    color: var(--text-white);
+    border: 2px solid var(--accent-gold);
+    border-radius: 6px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: var(--button-glow);
+}
+.hero .cta-button:hover {
+    background-color: var(--hover-dark);
+    color: var(--accent-gold);
+    transform: translateY(-6px);
+    border-color: var(--accent-red-glow);
+    box-shadow: 0 0 20px rgba(var(--accent-gold-rgb), 0.8);
+}
+.register {
+    padding: 80px 5%;
+    display: flex;
+    justify-content: center;
+    animation: fadeIn 1.5s ease-out;
+}
+.register-card {
+    background-color: var(--card-bg-color);
+    border: 1px solid var(--border-color-dark);
+    border-radius: 10px;
+    padding: 40px;
+    max-width: 600px;
+    width: 100%;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.8);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+.register-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at center, rgba(var(--accent-gold-rgb), 0.05) 0%, transparent 70%);
+    animation: rotateBackground 20s linear infinite;
+    z-index: 0;
+    opacity: 0.6;
+}
+@keyframes rotateBackground {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+.register-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.8), 0 0 20px rgba(var(--accent-gold-rgb), 0.4);
+}
+.register-card h2 {
+    font-size: 2.5em;
+    font-weight: 700;
+    color: var(--text-white);
+    text-shadow: 0 0 10px rgba(var(--accent-gold-rgb), 0.5);
+    margin-bottom: 30px;
+    text-align: center;
+    letter-spacing: 1px;
+    position: relative;
+    z-index: 1;
+}
+.register-card .form-group {
+    margin-bottom: 25px;
+    position: relative;
+    z-index: 1;
+}
+.register-card label {
+    display: block;
+    font-size: 1.1em;
+    font-weight: 600;
+    color: var(--text-white);
+    margin-bottom: 10px;
+}
+.register-card input {
+    width: calc(100% - 30px);
+    padding: 12px 15px;
+    border: 1px solid var(--border-color-light);
+    border-radius: 6px;
+    background-color: var(--header-bg-color);
+    color: var(--text-white);
+    font-size: 1em;
+    font-weight: 500;
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.6);
+}
+.register-card input::placeholder {
+    color: var(--text-placeholder);
+    font-weight: 400;
+}
+.register-card input:focus {
+    border-color: var(--accent-gold);
+    background-color: var(--hover-dark);
+    box-shadow: var(--focus-glow);
+}
+.register-card input:invalid:focus {
+    border-color: var(--error-color);
+    box-shadow: 0 0 10px rgba(var(--error-color-rgb, 255, 77, 77), 0.7);
+}
+.register-card button {
+    width: 100%;
+    padding: 12px 20px;
+    font-size: 1.1em;
+    font-weight: 600;
+    background-color: var(--header-bg-color);
+    color: var(--text-white);
+    border: 2px solid var(--accent-gold);
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    box-shadow: var(--button-glow);
+    position: relative;
+    z-index: 1;
+}
+.register-card button:hover {
+    background-color: var(--hover-dark);
+    color: var(--accent-gold);
+    transform: translateY(-6px);
+    border-color: var(--accent-red-glow);
+    box-shadow: 0 0 20px rgba(var(--accent-gold-rgb), 0.8);
+}
+.register-card button:disabled {
+    background-color: var(--border-color-light);
+    color: var(--text-placeholder);
+    cursor: not-allowed;
+    box-shadow: none;
+    transform: none;
+    border-color: var(--border-color-dark);
+}
+.form-message {
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 6px;
+    text-align: center;
+    font-size: 0.95em;
+    font-weight: 500;
+    display: none;
+    transition: opacity 0.3s ease;
+    position: relative;
+    z-index: 1;
+}
+.form-message.success {
+    background-color: rgba(var(--success-color-rgb, 0, 255, 0), 0.2);
+    color: var(--success-color);
+    display: block;
+    border: 1px solid var(--success-color);
+    box-shadow: 0 0 10px rgba(var(--success-color-rgb, 0, 255, 0), 0.4);
+}
+.form-message.error {
+    background-color: rgba(var(--error-color-rgb, 255, 77, 77), 0.2);
+    color: var(--error-color);
+    display: block;
+    border: 1px solid var(--error-color);
+    box-shadow: 0 0 10px rgba(var(--error-color-rgb, 255, 77, 77), 0.4);
+}
+.footer {
+    padding: 30px;
+    text-align: center;
+    background-color: var(--header-bg-color);
+    border-top: 1px solid var(--border-color-dark);
+    color: var(--text-white);
+    font-size: 1em;
+    font-weight: 600;
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.8);
+}
+.footer a {
+    color: var(--text-white);
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+.footer a:hover {
+    color: var(--accent-gold);
     transform: translateY(-4px);
 }
-.navbar .nav-links a.active {
-    color: var(--accent-gold);
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+@media (max-width: 992px) {
+    .hero h1 {
+        font-size: 3.2em;
+    }
+    .hero h2 {
+        font-size: 2.2em;
+    }
+    .hero p {
+        font-size: 1.4em;
+    }
+    .hero .cta-button {
+        padding: 10px 20px;
+        font-size: 1em;
+    }
+    .register-card h2 {
+        font-size: 2.2em;
+    }
+}
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        padding: 12px 20px;
+        gap: 10px;
+    }
+    .navbar .logo {
+        margin: 0;
+        font-size: 1.8em;
+    }
+    .navbar .nav-links {
+        flex-grow: 0;
+        width: 100%;
+        justify-content: center;
+        gap: 15px;
+    }
+    .navbar .nav-links a {
+        font-size: 0.9em;
+        padding: 6px 10px;
+    }
+    .hero h1 {
+        font-size: 2.8em;
+    }
+    .hero h2 {
+        font-size: 1.8em;
+    }
+    .hero p {
+        font-size: 1.2em;
+        margin-bottom: 30px;
+    }
+    .hero .cta-button {
+        padding: 8px 18px;
+        font-size: 0.95em;
+    }
+    .register {
+        padding: 60px 5%;
+    }
+    .register-card {
+        padding: 30px;
+        border-radius: 8px;
+    }
+    .register-card h2 {
+        font-size: 2em;
+        margin-bottom: 25px;
+    }
+    .register-card label {
+        font-size: 1em;
+    }
+    .register-card input {
+        padding: 10px 12px;
+        font-size: 0.9em;
+    }
+    .register-card button {
+        padding: 10px 15px;
+        font-size: 1em;
+    }
+    .form-message {
+        font-size: 0.9em;
+    }
+    .footer {
+        padding: 20px;
+        font-size: 0.9em;
+    }
+    .footer a {
+        margin: 0 10px;
+    }
+}
+@media (max-width: 480px) {
+    .navbar .nav-links {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+    .hero h1 {
+        font-size: 2.4em;
+        letter-spacing: 1px;
+    }
+    .hero h2 {
+        font-size: 1.6em;
+    }
+    .hero p {
+        font-size: 1.1em;
+    }
+    .register-card {
+        padding: 20px;
+    }
+    .register-card h2 {
+        font-size: 1.8em;
+    }
+    .register-card label {
+        font-size: 0.95em;
+        margin-bottom: 8px;
+    }
+    .register-card input {
+        padding: 8px;
+        font-size: 0.85em;
+    }
+    .register-card button {
+        padding: 8px 12px;
+        font-size: 0.95em;
+    }
 }
 </style>
 </head>
@@ -176,26 +541,19 @@ body {
         <div class="particle particle4"></div>
     </div>
 
-<div class="page-wrapper">
-    <div class="top-header">
-        <div class="logo">
-            <img src="https://i.imgur.com/example_logo.png" alt="NmcTiers Logo">
-        </div>
-        <div class="server-ip">
-            SERVER IP: <span>Soon</span>
-        </div>
-    </div>
-
-    <!-- Fixed and corrected Navigation Bar -->
-    <nav class="navbar">
-        <div class="logo">
-            <img src="https://i.imgur.com/example_logo.png" alt="NmcTiers Logo">
-        </div>
-        <div class="nav-links">
-            <a href="index.html"><img src="https://pvptiers.com/icons/tiers/overall.png" alt="Home Icon">HOME</a>
-            <a href="community.html" class="active"><img src="https://pvptiers.com/icons/tiers/smp.png" alt="Community Icon">COMMUNITY</a>
-        </div>
-    </nav>
+    <div class="page-wrapper">
+        <nav class="navbar">
+            <div class="logo">
+                <img src="https://i.imgur.com/example_logo.png" alt="NmcTiers Logo">
+            </div>
+            <div class="nav-links">
+                <a href="index.html"><img src="https://pvptiers.com/icons/tiers/overall.png" alt="Home Icon">HOME</a>
+                <a href="community.html" class="active"><img src="https://pvptiers.com/icons/tiers/smp.png" alt="Community Icon">COMMUNITY</a>
+            </div>
+            <div class="server-ip">
+                SERVER IP: <span>Soon</span>
+            </div>
+        </nav>
     <section id="home" class="hero">
         <h1>🇳🇵 Nepali Minecraft Community Presents</h1>
         <h2>The Ultimate Minecraft Esports Tournament!</h2>
