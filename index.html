@@ -103,37 +103,37 @@ body {
     position: relative;
     z-index: 1;
 }
-.top-header {
+nav {
     background-color: var(--header-bg-color);
     border-bottom: 1px solid var(--border-color-dark);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     padding: 10px 40px;
-    box-shadow: 0 4px 40px rgba(0, 0, 0, 1);
+    box-shadow: 0 2px 30px rgba(0, 0, 0, 1);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
-.top-header .logo {
-    font-size: 2em;
+nav .logo {
+    font-size: 1.1em;
     font-weight: 700;
     color: var(--text-white);
     text-shadow: 0 0 10px rgba(var(--accent-gold-rgb), 0.6);
     letter-spacing: 1px;
+    text-decoration: none;
 }
-.main-nav-bar {
-    background-color: var(--header-bg-color);
-    border-bottom: 1px solid var(--border-color-dark);
-    padding: 10px 0;
-    box-shadow: 0 2px 30px rgba(0, 0, 0, 1);
+nav .nav-links {
+    display: flex;
+    justify-content: center;
+    flex-grow: 1;
 }
-.main-nav-bar ul {
+nav ul {
     list-style: none;
     padding: 0;
     margin: 0;
     display: flex;
-    justify-content: center;
+    align-items: center;
     gap: 30px;
 }
-.main-nav-bar ul li a {
+nav ul li a {
     color: var(--text-white);
     text-decoration: none;
     font-weight: 600;
@@ -146,13 +146,13 @@ body {
     text-shadow: 0 0 15px rgba(0,0,0,1);
     font-size: 0.95em;
 }
-.main-nav-bar ul li a img {
+nav ul li a img {
     height: 20px;
     filter: brightness(0.6) drop-shadow(0 0 10px rgba(0,0,0,1));
     transition: filter 0.3s ease;
 }
-.main-nav-bar ul li a:hover,
-.main-nav-bar ul li a.active {
+nav ul li a:hover,
+nav ul li a.active {
     background-color: var(--hover-dark);
     transform: translateY(-8px);
     box-shadow: 0 0 60px rgba(var(--accent-gold-rgb), 1), 0 20px 50px rgba(0,0,0,1);
@@ -160,8 +160,8 @@ body {
     border: 1px solid var(--accent-gold);
     text-shadow: 0 0 40px rgba(var(--accent-gold-rgb), 1);
 }
-.main-nav-bar ul li a:hover img,
-.main-nav-bar ul li a.active img {
+nav ul li a:hover img,
+nav ul li a.active img {
     filter: brightness(1) drop-shadow(0 0 30px rgba(var(--accent-gold-rgb), 1));
 }
 .hero {
@@ -413,20 +413,22 @@ body {
     }
 }
 @media (max-width: 768px) {
-    .top-header {
-        flex-direction: column;
-        padding: 12px 20px;
-        gap: 10px;
-    }
-    .top-header .logo {
-        margin: 0;
-        font-size: 1.8em;
-    }
-    .main-nav-bar ul {
+    nav {
         flex-wrap: wrap;
+        padding: 12px 20px;
         gap: 15px;
     }
-    .main-nav-bar ul li a {
+    nav .logo {
+        font-size: 1em;
+    }
+    nav .nav-links {
+        justify-content: center;
+        width: 100%;
+    }
+    nav ul {
+        gap: 15px;
+    }
+    nav ul li a {
         font-size: 0.9em;
         padding: 6px 10px;
     }
@@ -478,7 +480,7 @@ body {
     }
 }
 @media (max-width: 480px) {
-    .main-nav-bar ul {
+    nav ul {
         gap: 10px;
     }
     .hero h1 {
@@ -521,15 +523,17 @@ body {
     </div>
 
     <div class="page-wrapper">
-        </div>
-        <nav class="main-nav-bar">
-            <ul>
-                <li><a href="index.html"><img src="https://pvptiers.com/icons/tiers/overall.png" alt="Home Icon">HOME</a></li>
-                <li><a href="community.html"><img src="https://pvptiers.com/icons/tiers/smp.png" alt="Community Icon">COMMUNITY</a></li>
-            </ul>
+        <nav>
+            <a href="index.html" class="logo">NMC</a>
+            <div class="nav-links">
+                <ul>
+                    <li><a href="index.html"><img src="https://pvptiers.com/icons/tiers/overall.png" alt="Home Icon">HOME</a></li>
+                    <li><a href="community.html"><img src="https://pvptiers.com/icons/tiers/smp.png" alt="Community Icon">COMMUNITY</a></li>
+                </ul>
+            </div>
         </nav>
     <section id="home" class="hero">
-        <h1>  Nepali Minecraft Community Presents</h1>
+        <h1> Nepali Minecraft Community Presents</h1>
         <h2>The Ultimate Minecraft Esports Tournament!</h2>
         <p>Compete for Glory and Over 3,000 in Prizes!</p>
         <a href="#register" class="cta-button">Register Now</a>
@@ -551,6 +555,10 @@ body {
                     <input type="email" id="email" name="email" required placeholder="Your email address">
                 </div>
                 <div class="form-group">
+                    <label for="ign">IGN (In-Game Name)</label>
+                    <input type="text" id="ign" name="ign" required placeholder="Your Minecraft in-game name">
+                </div>
+                <div class="form-group">
                     <label for="discord">Discord ID</label>
                     <input type="text" id="discord" name="discord" title="Enter your Discord ID (e.g., YourUsername#1234 or your User ID)" required placeholder="Your Discord username or ID">
                 </div>
@@ -570,7 +578,7 @@ body {
     // Dynamically set active class for navigation
     document.addEventListener('DOMContentLoaded', () => {
         const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-        const navLinks = document.querySelectorAll('.main-nav-bar ul li a');
+        const navLinks = document.querySelectorAll('nav ul li a');
         navLinks.forEach(link => {
             if (link.getAttribute('href') === currentPage) {
                 link.classList.add('active');
@@ -597,6 +605,7 @@ body {
             name: formData.get('name'),
             age: formData.get('age'),
             email: formData.get('email'),
+            ign: formData.get('ign'),
             discord: formData.get('discord'),
             submissionId: Date.now().toString() + Math.random().toString(36).substring(2, 15),
         };
@@ -610,25 +619,26 @@ body {
                 body: JSON.stringify({
                     embeds: [{
                         title: ' NMC Tournament Registration',
-                        description: 'A new participant has registered for the NMC Tournament. Review the details below.',
+                        description: 'A new participant has registered for the Nepali Minecraft Community Tournament. Review the details below.',
                         color: 0xFFB800,
                         fields: [
                             { name: 'ID', value: data.submissionId, inline: true },
                             { name: 'Name', value: data.name, inline: true },
                             { name: 'Age', value: data.age, inline: true },
                             { name: 'Email', value: data.email, inline: true },
+                            { name: 'IGN', value: data.ign, inline: true },
                             { name: 'Discord ID', value: data.discord, inline: true },
                         ],
                         author: {
                             name: 'Nepali Minecraft Community',
-                            icon_url: 'https://media.discordapp.net/attachments/1410292293671325796/1410597310403973221/raw.png?ex=68b1989e&is=68b0471e&hm=1d7229daa683887beef867094a9735fe6f75851e62cd2148e5c5a821bcf7980d&=&format=webp&quality=lossless&width=578&height=578'
+                            icon_url: 'https://media.discordapp.net/attachments/1410292293671325796/1410597310403973221/raw.png?ex=68b2ea1e&is=68b1989e&hm=9288adb51cfcbd9cd533efd210018e39d0b5affac38f2fd6aa7497ba5768d379&=&format=webp&quality=lossless&width=578&height=578'
                         },
                         thumbnail: {
-                            url: 'https://media.discordapp.net/attachments/1410292293671325796/1410597310403973221/raw.png?ex=68b1989e&is=68b0471e&hm=1d7229daa683887beef867094a9735fe6f75851e62cd2148e5c5a821bcf7980d&=&format=webp&quality=lossless&width=578&height=578'
+                            url: 'https://media.discordapp.net/attachments/1410292293671325796/1410597310403973221/raw.png?ex=68b2ea1e&is=68b1989e&hm=9288adb51cfcbd9cd533efd210018e39d0b5affac38f2fd6aa7497ba5768d379&=&format=webp&quality=lossless&width=578&height=578'
                         },
                         footer: {
                             text: `Nepali Minecraft Community | Submission ID: ${data.submissionId}`,
-                            icon_url: 'https://media.discordapp.net/attachments/1410292293671325796/1410597310403973221/raw.png?ex=68b1989e&is=68b0471e&hm=1d7229daa683887beef867094a9735fe6f75851e62cd2148e5c5a821bcf7980d&=&format=webp&quality=lossless&width=578&height=578'
+                            icon_url: 'https://media.discordapp.net/attachments/1410292293671325796/1410597310403973221/raw.png?ex=68b2ea1e&is=68b1989e&hm=9288adb51cfcbd9cd533efd210018e39d0b5affac38f2fd6aa7497ba5768d379&=&format=webp&quality=lossless&width=578&height=578'
                         },
                         timestamp: new Date(),
                     }],
