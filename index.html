@@ -3,18 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nepali Minecraft Community - Home</title>
+    <title>Nepali Minecraft Community</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="icon" href="https://minecraft.net/favicon.ico" type="image/x-icon">
     <style>
         :root {
             --primary-red: #D32F2F;
-            --dark-bg: #121212;
+            --dark-bg: #0a0a0a;
             --white-text: #FFFFFF;
             --gray-text: #B0B0B0;
-            --card-bg: #1E1E1E;
+            --card-bg: #1a1a1a;
             --border-color: #333;
-            --hover-red: rgba(211, 47, 47, 0.2);
+            --glow-red: rgba(211, 47, 47, 0.6);
         }
 
         * {
@@ -40,16 +40,18 @@
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(18, 18, 18, 0.95);
-            backdrop-filter: blur(10px);
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
             z-index: 1000;
             padding: 1rem 0;
             transition: all 0.3s ease;
+            border-bottom: 1px solid rgba(211, 47, 47, 0.1);
         }
 
         nav.scrolled {
-            background: var(--dark-bg);
-            box-shadow: 0 2px 20px rgba(0,0,0,0.3);
+            background: rgba(10, 10, 10, 0.98);
+            box-shadow: 0 2px 30px rgba(211, 47, 47, 0.1);
         }
 
         .nav-container {
@@ -62,43 +64,50 @@
         }
 
         .logo {
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             font-weight: 700;
-            color: var(--primary-red);
+            background: linear-gradient(45deg, var(--primary-red), #ff5252);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
             text-decoration: none;
+            text-shadow: 0 0 20px rgba(211, 47, 47, 0.3);
         }
 
         .nav-links {
             display: flex;
             list-style: none;
-            gap: 2rem;
+            gap: 2.5rem;
         }
 
         .nav-links a {
             color: var(--white-text);
             text-decoration: none;
             font-weight: 500;
-            transition: color 0.3s ease;
             position: relative;
+            transition: all 0.3s ease;
+            padding: 0.5rem 0;
         }
 
-        .nav-links a:hover {
-            color: var(--primary-red);
-        }
-
-        .nav-links a::after {
+        .nav-links a::before {
             content: '';
             position: absolute;
             width: 0;
             height: 2px;
-            bottom: -5px;
-            left: 0;
-            background-color: var(--primary-red);
-            transition: width 0.3s ease;
+            bottom: 0;
+            left: 50%;
+            background: linear-gradient(90deg, var(--primary-red), #ff5252);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
         }
 
-        .nav-links a:hover::after {
+        .nav-links a:hover::before {
             width: 100%;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-red);
+            text-shadow: 0 0 10px var(--glow-red);
         }
 
         .hamburger {
@@ -110,151 +119,185 @@
         .hamburger span {
             width: 25px;
             height: 3px;
-            background: var(--white-text);
+            background: var(--primary-red);
             margin: 3px 0;
             transition: 0.3s;
+            box-shadow: 0 0 10px var(--glow-red);
         }
 
         /* Hero Section */
         #hero {
             height: 100vh;
+            position: relative;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
-            background: linear-gradient(rgba(18, 18, 18, 0.8), rgba(18, 18, 18, 0.8)),
-                        url('https://images.unsplash.com/photo-1558618047-3c8c76a1e84b?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
+            overflow: hidden;
+        }
+
+        #hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, 
+                rgba(10, 10, 10, 0.9) 0%,
+                rgba(211, 47, 47, 0.1) 50%,
+                rgba(10, 10, 10, 0.9) 100%);
+            z-index: 1;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, 
+                #1a1a2e 0%, 
+                #16213e 25%, 
+                #0f3460 50%, 
+                #e94560 75%, 
+                #1a1a2e 100%);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+            z-index: 0;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Glowing Particles */
+        .particles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .particle {
+            position: absolute;
+            background: radial-gradient(circle, var(--primary-red) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+            animation: float 6s infinite linear;
+        }
+
+        .particle:nth-child(odd) {
+            background: radial-gradient(circle, #ff5252 0%, transparent 70%);
+            animation-duration: 8s;
+        }
+
+        .particle:nth-child(3n) {
+            background: radial-gradient(circle, #ff1744 0%, transparent 70%);
+            animation-duration: 10s;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        .hero-content {
             position: relative;
+            z-index: 2;
+            animation: fadeInUp 1.5s ease;
         }
 
         .hero-content h1 {
-            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-size: clamp(3rem, 8vw, 5rem);
+            font-weight: 700;
             margin-bottom: 1rem;
-            background: linear-gradient(45deg, var(--primary-red), #ff6b6b);
+            background: linear-gradient(45deg, var(--white-text), var(--primary-red), #ff5252);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            animation: fadeInUp 1s ease;
+            text-shadow: 0 0 30px var(--glow-red);
+            animation: glowText 3s ease-in-out infinite alternate;
+        }
+
+        @keyframes glowText {
+            from { 
+                filter: drop-shadow(0 0 20px var(--glow-red));
+            }
+            to { 
+                filter: drop-shadow(0 0 40px var(--glow-red)) drop-shadow(0 0 60px var(--glow-red));
+            }
         }
 
         .hero-content .tagline {
-            font-size: clamp(1.2rem, 3vw, 1.5rem);
+            font-size: clamp(1.2rem, 3vw, 1.8rem);
             color: var(--gray-text);
-            margin-bottom: 2rem;
-            animation: fadeInUp 1s ease 0.2s both;
+            margin-bottom: 3rem;
+            font-weight: 300;
+            animation: fadeInUp 1.5s ease 0.3s both;
         }
 
         .cta-button {
             display: inline-block;
-            padding: 15px 40px;
+            padding: 18px 50px;
             background: linear-gradient(45deg, var(--primary-red), #b71c1c);
             color: var(--white-text);
             text-decoration: none;
             border-radius: 50px;
             font-weight: 600;
-            font-size: 1.1rem;
+            font-size: 1.2rem;
+            position: relative;
+            overflow: hidden;
             transition: all 0.3s ease;
-            box-shadow: 0 10px 30px rgba(211, 47, 47, 0.3);
-            animation: fadeInUp 1s ease 0.4s both;
+            box-shadow: 0 10px 30px rgba(211, 47, 47, 0.4);
+            animation: fadeInUp 1.5s ease 0.6s both, pulseGlow 2s ease-in-out infinite;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .cta-button:hover::before {
+            left: 100%;
         }
 
         .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(211, 47, 47, 0.5);
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 20px 50px rgba(211, 47, 47, 0.6);
         }
 
-        /* Sections */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
+        @keyframes pulseGlow {
+            0%, 100% { box-shadow: 0 10px 30px rgba(211, 47, 47, 0.4); }
+            50% { box-shadow: 0 10px 30px rgba(211, 47, 47, 0.8); }
         }
 
-        section {
-            padding: 100px 0;
-        }
-
-        h2 {
-            font-size: 2.5rem;
-            text-align: center;
-            margin-bottom: 3rem;
-            color: var(--white-text);
-        }
-
-        h2::after {
-            content: '';
-            display: block;
-            width: 80px;
-            height: 4px;
-            background: var(--primary-red);
-            margin: 20px auto;
-            border-radius: 2px;
-        }
-
-        /* Features Grid */
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .feature-card {
-            background: var(--card-bg);
-            padding: 2rem;
-            border-radius: 15px;
-            text-align: center;
-            transition: all 0.3s ease;
-            border: 1px solid var(--border-color);
-        }
-
-        .feature-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-            border-color: var(--primary-red);
-        }
-
-        .feature-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-
-        /* Stats */
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            text-align: center;
-            margin-top: 3rem;
-        }
-
-        .stat-card {
-            background: var(--card-bg);
-            padding: 2rem;
-            border-radius: 15px;
-            transition: all 0.3s ease;
-            border: 1px solid var(--border-color);
-        }
-
-        .stat-card:hover {
-            border-color: var(--primary-red);
-        }
-
-        .stat-number {
-            font-size: 3rem;
-            color: var(--primary-red);
-            font-weight: 700;
-        }
-
-        /* Animations */
         @keyframes fadeInUp {
             from {
                 opacity: 0;
-                transform: translateY(30px);
+                transform: translateY(50px);
             }
             to {
                 opacity: 1;
@@ -262,15 +305,71 @@
             }
         }
 
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.6s ease;
+        /* Stats Section */
+        .stats-section {
+            padding: 100px 20px;
+            background: linear-gradient(135deg, var(--dark-bg) 0%, var(--card-bg) 100%);
+            position: relative;
         }
 
-        .fade-in.visible {
+        .stats-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .stat-card {
+            background: rgba(255,255,255,0.02);
+            backdrop-filter: blur(10px);
+            padding: 2rem;
+            border-radius: 20px;
+            border: 1px solid rgba(211, 47, 47, 0.2);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(211, 47, 47, 0.05), transparent);
+            transform: rotate(45deg);
+            transition: all 0.6s ease;
+            opacity: 0;
+        }
+
+        .stat-card:hover::before {
+            animation: shimmer 0.6s ease;
             opacity: 1;
-            transform: translateY(0);
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+        }
+
+        .stat-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary-red);
+            box-shadow: 0 20px 40px rgba(211, 47, 47, 0.2);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            color: var(--primary-red);
+            font-weight: 700;
+            text-shadow: 0 0 20px var(--glow-red);
         }
 
         /* Responsive */
@@ -289,30 +388,27 @@
                 text-align: center;
                 transition: 0.3s;
                 padding: 2rem 0;
+                box-shadow: 0 10px 30px rgba(0,0,0,0.5);
             }
 
             .nav-links.active {
                 left: 0;
             }
 
-            .features-grid,
             .stats-grid {
-                grid-template-columns: 1fr;
+                grid-template-columns: repeat(2, 1fr);
             }
 
-            section {
-                padding: 60px 0;
-            }
-
-            #hero {
-                background-attachment: scroll;
+            #hero h1 {
+                font-size: 2.5rem;
             }
         }
 
-        /* Utility */
-        .text-center { text-align: center; }
-        .mb-4 { margin-bottom: 2rem; }
-        .mt-4 { margin-top: 2rem; }
+        @media (max-width: 480px) {
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
 </head>
 <body>
@@ -321,10 +417,10 @@
         <div class="nav-container">
             <a href="index.html" class="logo">🟫 NMC</a>
             <ul class="nav-links" id="navLinks">
-                <li><a href="#home">Home</a></li>
+                <li><a href="index.html#home">Home</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="community.html">Community</a></li>
-                <li><a href="https://discord.com/invite/Jr4sdK9m" target="_blank">Join Discord</a></li>
+                <li><a href="#join">Join Discord</a></li>
             </ul>
             <div class="hamburger" id="hamburger">
                 <span></span>
@@ -335,68 +431,41 @@
     </nav>
 
     <!-- Hero Section -->
-    <section id="hero" class="fade-in">
+    <section id="hero">
+        <div class="hero-bg"></div>
+        <div class="particles" id="particles"></div>
         <div class="hero-content">
             <h1>Nepali Minecraft Community</h1>
             <p class="tagline">Connecting Nepali Players Worldwide</p>
             <a href="https://discord.com/invite/Jr4sdK9m" target="_blank" class="cta-button">
-                Join Our Discord Server
+                Join Our Discord
             </a>
         </div>
     </section>
 
-    <!-- Features Section -->
-    <section id="features" class="container">
-        <h2 class="fade-in">Why Join NMC?</h2>
-        <div class="features-grid">
-            <div class="feature-card fade-in">
-                <div class="feature-icon">🌍</div>
-                <h3>Global Community</h3>
-                <p>Connect with Nepali Minecraft players from around the world, share experiences, and build lasting friendships across time zones.</p>
-            </div>
-            <div class="feature-card fade-in">
-                <div class="feature-icon">🏗️</div>
-                <h3>Nepali Builds</h3>
-                <p>Showcase traditional Nepali architecture, recreate famous landmarks, and collaborate on cultural Minecraft projects.</p>
-            </div>
-            <div class="feature-card fade-in">
-                <div class="feature-icon">🎮</div>
-                <h3>Events & Tournaments</h3>
-                <p>Participate in regular build contests, survival challenges, and community events tailored for Nepali players.</p>
-            </div>
-        </div>
-    </section>
-
     <!-- Stats Section -->
-    <section id="stats" class="container" style="background: var(--card-bg);">
-        <h2 class="fade-in">Community Stats</h2>
-        <div class="stats-grid">
-            <div class="stat-card fade-in">
-                <div class="stat-number" id="online-count">Loading...</div>
-                <p>Online Members</p>
-            </div>
-            <div class="stat-card fade-in">
-                <div class="stat-number">1,000+</div>
-                <p>Total Members</p>
-            </div>
-            <div class="stat-card fade-in">
-                <div class="stat-number">50+</div>
-                <p>Active Events</p>
-            </div>
-            <div class="stat-card fade-in">
-                <div class="stat-number">100+</div>
-                <p>Nepali Builds</p>
+    <section class="stats-section">
+        <div class="stats-container">
+            <h2 style="font-size: 2.5rem; margin-bottom: 1rem;">Live Community Stats</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number" id="online-count">Loading...</div>
+                    <p>Online Members</p>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">1,000+</div>
+                    <p>Total Members</p>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">24/7</div>
+                    <p>Active Voice</p>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">50+</div>
+                    <p>Events Monthly</p>
+                </div>
             </div>
         </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section id="cta" class="container text-center">
-        <h2 class="fade-in">Ready to Join the Block Party?</h2>
-        <p class="fade-in mb-4">Become part of Nepal's largest Minecraft community today!</p>
-        <a href="https://discord.com/invite/Jr4sdK9m" target="_blank" class="cta-button fade-in">
-            Join Discord Now
-        </a>
     </section>
 
     <script>
@@ -411,12 +480,36 @@
 
         // Navbar scroll effect
         window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
+            navbar.classList.toggle('scrolled', window.scrollY > 50);
         });
+
+        // Create glowing particles
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            const particleCount = 50;
+
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                
+                // Random size
+                const size = Math.random() * 6 + 2;
+                particle.style.width = size + 'px';
+                particle.style.height = size + 'px';
+                
+                // Random starting position
+                particle.style.left = Math.random() * 100 + '%';
+                
+                // Random animation delay
+                particle.style.animationDelay = Math.random() * 6 + 's';
+                
+                // Random animation duration
+                const duration = Math.random() * 4 + 6;
+                particle.style.animationDuration = duration + 's';
+                
+                particlesContainer.appendChild(particle);
+            }
+        }
 
         // Fetch Discord stats
         async function fetchDiscordStats() {
@@ -429,27 +522,22 @@
             }
         }
 
-        // Intersection Observer for animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.fade-in').forEach(el => {
-            observer.observe(el);
-        });
-
         // Initialize
+        createParticles();
         fetchDiscordStats();
         setInterval(fetchDiscordStats, 30000); // Update every 30 seconds
+
+        // Respawn particles periodically
+        setInterval(() => {
+            const particles = document.querySelectorAll('.particle');
+            particles.forEach((particle, index) => {
+                setTimeout(() => {
+                    particle.style.animation = 'none';
+                    particle.offsetHeight; // Trigger reflow
+                    particle.style.animation = null;
+                }, index * 100);
+            });
+        }, 30000);
     </script>
 </body>
 </html>
