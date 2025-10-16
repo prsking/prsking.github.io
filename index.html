@@ -58,7 +58,7 @@
             max-width: 1200px;
             margin: 0 auto;
             display: flex;
-            justify-content: space-between;
+            justify-content: center; /* Center the navigation links */
             align-items: center;
             padding: 0 20px;
         }
@@ -66,12 +66,8 @@
         .logo {
             font-size: 1.8rem;
             font-weight: 700;
-            background: linear-gradient(45deg, var(--primary-red), #ff5252);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: var(--white-text); /* Removed gradient and text-shadow for simplicity */
             text-decoration: none;
-            text-shadow: 0 0 20px rgba(211, 47, 47, 0.3);
         }
 
         .nav-links {
@@ -131,8 +127,8 @@
             position: relative;
             display: flex;
             flex-direction: column;
-            justify-content: center; /* Vertically center the content */
-            align-items: center; /* Horizontally center the content */
+            justify-content: center;
+            align-items: center;
             text-align: center;
             overflow: hidden;
         }
@@ -246,15 +242,15 @@
             animation: fadeInUp 1.5s ease;
             display: flex;
             flex-direction: column;
-            justify-content: center; /* Vertically center the content inside hero-content */
-            align-items: center; /* Horizontally center the content inside hero-content */
-            gap: 1.5rem; /* Space between title, tagline, and button */
+            justify-content: center;
+            align-items: center;
+            gap: 1.5rem;
         }
 
         .hero-content h1 {
             font-size: clamp(3rem, 8vw, 5rem);
             font-weight: 700;
-            margin-bottom: 0; /* Removed default margin to control spacing with gap */
+            margin-bottom: 0;
             color: var(--primary-red);
             text-shadow: none;
             animation: none;
@@ -263,7 +259,7 @@
         .hero-content .tagline {
             font-size: clamp(1.2rem, 3vw, 1.8rem);
             color: var(--gray-text);
-            margin-bottom: 0; /* Removed default margin to control spacing with gap */
+            margin-bottom: 0;
             font-weight: 300;
             animation: fadeInUp 1.5s ease 0.3s both;
         }
@@ -343,7 +339,7 @@
             }
 
             .hero-content {
-                gap: 1rem; /* Reduced gap for mobile */
+                gap: 1rem;
             }
         }
 
@@ -355,7 +351,7 @@
     <!-- Navigation -->
     <nav id="navbar">
         <div class="nav-container">
-            <a href="index.html" class="logo">🟫 NMC</a>
+            <a href="index.html" class="logo">NMC</a>
             <ul class="nav-links" id="navLinks">
                 <li><a href="index.html#home">Home</a></li>
                 <li><a href="about.html">About</a></li>
