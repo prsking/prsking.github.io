@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Nepali Minecraft Community - Uniting Nepali Minecraft Players Worldwide. Join our Discord and connect with the community!" />
+  <title>NMC | Nepali Minecraft Community</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #D32F2F;
+      --dark-bg: #121212;
+      --light-text: #FFFFFF;
+      --gray-text: #B0B0B0;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Poppins", sans-serif;
+      background-color: var(--dark-bg);
+      color: var(--light-text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    header {
+      background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://wallpapercave.com/wp/wp7451842.jpg') center/cover no-repeat;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 0 20px;
+    }
+
+    header h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    header p {
+      font-size: 1.2rem;
+      color: var(--gray-text);
+      margin: 10px 0 25px;
+    }
+
+    .btn {
+      background-color: var(--primary);
+      color: white;
+      padding: 14px 32px;
+      border: none;
+      border-radius: 30px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: #b71c1c;
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(211, 47, 47, 0.4);
+    }
+
+    section {
+      padding: 80px 10%;
+      text-align: center;
+    }
+
+    section h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      color: var(--primary);
+    }
+
+    section p {
+      color: var(--gray-text);
+      max-width: 800px;
+      margin: 0 auto 40px;
+    }
+
+    .discord-widget {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 40px;
+    }
+
+    iframe {
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.4);
+    }
+
+    .stats {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    .stat-box {
+      background-color: #1e1e1e;
+      padding: 30px 50px;
+      border-radius: 20px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.4);
+      transition: 0.3s;
+    }
+
+    .stat-box:hover {
+      transform: scale(1.05);
+      background-color: #222;
+    }
+
+    .stat-box h3 {
+      color: var(--primary);
+      font-size: 2rem;
+    }
+
+    footer {
+      background-color: #0b0b0b;
+      padding: 40px 10%;
+      text-align: center;
+      border-top: 1px solid #222;
+    }
+
+    footer p {
+      color: var(--gray-text);
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 768px) {
+      header h1 { font-size: 2.3rem; }
+      section h2 { font-size: 1.8rem; }
+      .stat-box { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HERO SECTION -->
+  <header>
+    <h1>Nepali Minecraft Community</h1>
+    <p>Connecting Nepali Minecraft Players Worldwide 🌏</p>
+    <a href="https://discord.gg/nmc" target="_blank" class="btn">Join Our Discord</a>
+  </header>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <h2>About NMC</h2>
+    <p>
+      NMC (Nepali Minecraft Community) is a passionate community of Minecraft players from Nepal and beyond. 
+      We connect, build, and collaborate — sharing creativity, culture, and friendship through Minecraft. 
+      Join us on Discord to be part of our growing network of builders, players, and creators!
+    </p>
+  </section>
+
+  <!-- STATS -->
+  <section id="stats">
+    <h2>Community Stats</h2>
+    <div class="stats">
+      <div class="stat-box">
+        <h3>500+</h3>
+        <p>Members</p>
+      </div>
+      <div class="stat-box">
+        <h3>Active</h3>
+        <p>Discord Server</p>
+      </div>
+      <div class="stat-box">
+        <h3>24/7</h3>
+        <p>Community Support</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- DISCORD WIDGET -->
+  <section id="discord">
+    <h2>Join Our Discord</h2>
+    <p>Meet players, share ideas, and play together in our official Discord server.</p>
+    <div class="discord-widget">
+      <iframe src="https://discord.com/widget?id=1394714934960721981&theme=dark" width="350" height="500" allowtransparency="true" frameborder="0"
+      sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2025 Nepali Minecraft Community | Proudly Made by the NMC Team 🇳🇵</p>
+  </footer>
+
+</body>
+</html>
